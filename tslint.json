@@ -4,6 +4,7 @@
         "tslint-config-prettier"
     ],
     "rules": {
+        "no-bitwise": false,
         "no-console": false,
         "object-literal-sort-keys": false,
         "member-access": false,
