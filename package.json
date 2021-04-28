@@ -2,7 +2,20 @@
     "name": "easy-qrcode",
     "version": "0.1.0",
     "description": "A easy qrcode package written by TypeScript.",
-    "main": "index.js",
+    "main": "dist/easy-qrcode.common.js",
+    "module": "dist/easy-qrcode.esm.js",
+    "unpkg": "dist/easy-qrcode.js",
+    "types": "dist/easy-qrcode.d.ts",
+    "source": "src/index.ts",
+    "files": [
+        "dist",
+        "src",
+        "logo.png"
+    ],
+    "scripts": {
+        "build": "rimraf dist && rollup -c && terser dist/easy-qrcode.js -c -m --comments -o dist/easy-qrcode.min.js",
+        "test": "jest --verbose"
+    },
     "keywords": [
         "qrcode",
         "2d code",

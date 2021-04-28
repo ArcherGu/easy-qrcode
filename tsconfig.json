@@ -1,0 +1,39 @@
+{
+    "compilerOptions": {
+        "rootDir": "src",
+        "baseUrl": ".",
+        "outDir": "./dist",
+        "sourceMap": false,
+        "target": "ESNext",
+        "module": "ESNext",
+        "allowJs": false,
+        "strict": true,
+        "importHelpers": true,
+        "moduleResolution": "node",
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "noUnusedLocals": false,
+        "noImplicitAny": false,
+        "removeComments": false,
+        "declaration": true,
+        "declarationMap": true,
+        "declarationDir": "./dist/types",
+        "lib": [
+            "ESNext",
+            "DOM"
+        ],
+        "types": [
+            "jest"
+        ],
+    },
+    "include": [
+        "src/**/*.ts",
+    ],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "__tests__",
+        "**/*.spec.ts"
+    ]
+}
