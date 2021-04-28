@@ -1,0 +1,36 @@
+{
+    "name": "easy-qrcode",
+    "version": "0.1.0",
+    "description": "A easy qrcode package written by TypeScript.",
+    "main": "index.js",
+    "keywords": [
+        "qrcode",
+        "2d code",
+        "easy-qrcode"
+    ],
+    "author": "ArcherGu",
+    "license": "MIT",
+    "homepage": "https://github.com/ArcherGu/easy-qrcode",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ArcherGu/easy-qrcode.git"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.13.16",
+        "@babel/preset-env": "^7.13.15",
+        "@rollup/plugin-babel": "^5.3.0",
+        "@rollup/plugin-typescript": "^8.2.1",
+        "@types/jest": "^26.0.23",
+        "jest": "^26.6.3",
+        "prettier": "^2.2.1",
+        "rimraf": "^3.0.2",
+        "rollup": "^2.45.2",
+        "rollup-plugin-dts": "^3.0.1",
+        "terser": "^5.7.0",
+        "ts-jest": "^26.5.5",
+        "tslint": "^6.1.3",
+        "tslint-config-prettier": "^1.18.0",
+        "typedoc": "^0.20.36",
+        "typescript": "^4.2.4"
+    }
+}
