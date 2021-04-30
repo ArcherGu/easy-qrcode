@@ -1,4 +1,4 @@
-import { QRMode } from "src/common/QR";
+import { QRMode } from "../../common/QR";
 import { BitBuffer } from "../BitBuffer";
 import { BaseData } from "./BaseData";
 

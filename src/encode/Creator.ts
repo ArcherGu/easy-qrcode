@@ -1,12 +1,8 @@
-import { MaskPattern } from "src/common/Mask";
-import { CreatorOptions, ErrorCorrectionLevel } from "src/common/QR";
-import { Nullable } from "src/utils/types_tool";
+import { MaskPattern } from "../common/Mask";
+import { CreatorOptions, ErrorCorrectionLevel } from "../common/QR";
+import { Nullable } from "../utils/types_tool";
 import { BitBuffer } from "./BitBuffer";
-import { AlphanumericData } from "./data/AlphanumericData";
-import { BaseData } from "./data/BaseData";
-import { ByteData } from "./data/ByteData";
-import { KanjiData } from "./data/KanjiData";
-import { NumericData } from "./data/NumericData";
+import { BaseData, AlphanumericData, ByteData, NumericData, KanjiData } from "./data";
 import { DataWizard } from "./DataWizard";
 import { QRContent } from "./QRContent";
 import { RSBlock } from "./RSBlock";

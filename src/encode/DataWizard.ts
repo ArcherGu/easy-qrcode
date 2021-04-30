@@ -1,7 +1,6 @@
-import { ErrorCorrectionLevel, QRMode } from "src/common/QR";
+import { ErrorCorrectionLevel, QRMode } from "../common/QR";
 import { BitBuffer } from "./BitBuffer";
-import { BaseData } from "./data/BaseData";
-import { ByteData } from "./data/ByteData";
+import { BaseData, ByteData } from "./data";
 import { RSBlock } from "./RSBlock";
 
 /**

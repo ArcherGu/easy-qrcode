@@ -1,5 +1,5 @@
-import { ECIIndicator, QRMode } from "src/common/QR";
-import { toUTF8 } from "src/utils/converter";
+import { ECIIndicator, QRMode } from "../../common/QR";
+import { toUTF8 } from "../../utils/converter";
 import { BitBuffer } from "../BitBuffer";
 import { BaseData } from "./BaseData";
 
