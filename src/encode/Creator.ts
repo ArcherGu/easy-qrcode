@@ -1,12 +1,15 @@
 import { MaskPattern } from "src/common/Mask";
 import { CreatorOptions, ErrorCorrectionLevel } from "src/common/QR";
 import { Nullable } from "src/utils/types_tool";
-import { AlphanumericData } from "./data/Alphanumeric";
+import { BitBuffer } from "./BitBuffer";
+import { AlphanumericData } from "./data/AlphanumericData";
 import { BaseData } from "./data/BaseData";
-import { ByteData } from "./data/Byte";
-import { KanjiData } from "./data/Kanji";
-import { NumericData } from "./data/Numeric";
+import { ByteData } from "./data/ByteData";
+import { KanjiData } from "./data/KanjiData";
+import { NumericData } from "./data/NumericData";
+import { DataWizard } from "./DataWizard";
 import { QRContent } from "./QRContent";
+import { RSBlock } from "./RSBlock";
 
 export class Creator {
     private version: number = 0;
@@ -220,6 +223,27 @@ export class Creator {
     }
 
     public create(): Creator {
+        let buffer: BitBuffer;
+        let rsBlocks: RSBlock[];
+        let maxDataCount: number;
+
+        if (this.autoVersion) {
+            // Look for version with the smallest size
+            for (this.version = 1; this.version <= 40; this.version++) {
+                [buffer, rsBlocks, maxDataCount] = DataWizard.preprocessing(this.version, this.errorCorrectionLevel, this.enableECI, this.segments);
+
+                if (buffer.getLengthOfBits() <= maxDataCount) {
+                    break;
+                };
+            }
+        } else {
+            // Use the specified version
+            [buffer, rsBlocks, maxDataCount] = DataWizard.preprocessing(this.version, this.errorCorrectionLevel, this.enableECI, this.segments);
+            if (buffer.getLengthOfBits() > maxDataCount) {
+                throw new Error(`Too big content that this version(${this.version}) cannot fit`);
+            }
+        }
+
         return this;
     }
 }

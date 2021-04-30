@@ -1,12 +1,13 @@
 import { MaskPattern } from "./Mask";
 
 /**
- * Encoding Hint
+ * ECI Indicator
+ * AIM ECI(Extended Channel Interpretation)
  *
  * @export
  * @enum {number}
  */
-export const enum EncodingHint {
+export const enum ECIIndicator {
     SJIS = 20,
     UTF8 = 26
 }

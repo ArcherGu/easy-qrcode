@@ -20,10 +20,12 @@ export class BitBuffer {
         return ((this.buffer[(index / 8) >> 0] >>> (7 - (index % 8))) & 1) === 1;
     }
 
-    public add(num: number, length: number): void {
+    public add(num: number, length: number): BitBuffer {
         for (let i: number = 0; i < length; i++) {
             this.addBit(((num >>> (length - i - 1)) & 1) === 1);
         }
+
+        return this;
     }
 
     public addBit(bit: boolean): void {

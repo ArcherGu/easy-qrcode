@@ -1,9 +1,9 @@
 import { QRMode } from "src/common/QR";
-import { AlphanumericData } from "./data/Alphanumeric";
+import { AlphanumericData } from "./data/AlphanumericData";
 import { BaseData } from "./data/BaseData";
-import { ByteData } from "./data/Byte";
-import { KanjiData } from "./data/Kanji";
-import { NumericData } from "./data/Numeric";
+import { ByteData } from "./data/ByteData";
+import { KanjiData } from "./data/KanjiData";
+import { NumericData } from "./data/NumericData";
 
 export class QRContent {
     constructor(
