@@ -16,7 +16,9 @@ export abstract class BaseData {
         return this.mode;
     }
 
-    public abstract getLength(): number;
+    public getLength(): number {
+        return this.bytes.length;
+    };
 
     public abstract write(buffer: BitBuffer): void;
 

@@ -35,10 +35,6 @@ export class ByteData extends BaseData {
         return this.indicator;
     }
 
-    public getLength(): number {
-        return this.bytes.length;
-    }
-
     public write(buffer: BitBuffer): void {
         for (const byte of this.bytes) {
             buffer.add(byte, 8);
