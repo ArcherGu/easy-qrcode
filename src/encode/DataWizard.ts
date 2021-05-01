@@ -4,6 +4,10 @@ import { BitBuffer } from "./BitBuffer";
 import { BaseData, ByteData } from "./data";
 import { Polynomial } from "../common/Polynomial";
 import { RSBlock } from "./RSBlock";
+import { getAlignmentPattern } from "../common/Alignment";
+import { getBCHVersion, getBCHVersionInfo } from "../common/BCH";
+import { getMaskFunc, MaskFunc } from "../common/Mask";
+import { Nullable } from "../utils/types_tool";
 
 /**
  * For QR data processing, conversion, composition, generation and other operations
@@ -191,5 +195,214 @@ export class DataWizard {
         }
 
         return buffer;
+    }
+
+    /**
+     * Add finder pattern to matrix
+     *
+     * @static
+     * @param {Nullable<boolean>[][]} matrix
+     * @param {number} matrixSize
+     * @memberof DataWizard
+     */
+    public static addFinderPattern(matrix: Nullable<boolean>[][], matrixSize: number): void {
+        const finderPattern = (row: number, col: number) => {
+            for (let r: number = -1; r <= 7; r++) {
+                for (let c: number = -1; c <= 7; c++) {
+                    if (row + r <= -1 || matrixSize <= row + r || col + c <= -1 || matrixSize <= col + c) {
+                        continue;
+                    }
+
+                    if (
+                        (0 <= r && r <= 6 && (c === 0 || c === 6)) ||
+                        (0 <= c && c <= 6 && (r === 0 || r === 6)) ||
+                        (2 <= r && r <= 4 && 2 <= c && c <= 4)
+                    ) {
+                        matrix[row + r][col + c] = true;
+                    } else {
+                        matrix[row + r][col + c] = false;
+                    }
+                }
+            }
+        };
+
+        finderPattern(0, 0);
+        finderPattern(matrixSize - 7, 0);
+        finderPattern(0, matrixSize - 7);
+    }
+
+    /**
+     * Add alignment pattern to matrix
+     *
+     * @static
+     * @param {Nullable<boolean>[][]} matrix
+     * @param {number} version
+     * @memberof DataWizard
+     */
+    public static addAlignmentPattern(matrix: Nullable<boolean>[][], version: number): void {
+        const pos: number[] = getAlignmentPattern(version);
+        const length: number = pos.length;
+
+        for (let i: number = 0; i < length; i++) {
+            for (let j: number = 0; j < length; j++) {
+                const row: number = pos[i];
+                const col: number = pos[j];
+
+                if (matrix[row][col] !== null) {
+                    continue;
+                }
+
+                for (let r: number = -2; r <= 2; r++) {
+                    for (let c: number = -2; c <= 2; c++) {
+                        if (r === -2 || r === 2 || c === -2 || c === 2 || (r === 0 && c === 0)) {
+                            matrix[row + r][col + c] = true;
+                        } else {
+                            matrix[row + r][col + c] = false;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Add timing pattern to matrix
+     *
+     * @static
+     * @param {Nullable<boolean>[][]} matrix
+     * @param {number} matrixSize
+     * @memberof DataWizard
+     */
+    public static addTimingPattern(matrix: Nullable<boolean>[][], matrixSize: number): void {
+        for (let i: number = 8; i < (matrixSize - 8); i++) {
+            const bit: boolean = i % 2 === 0;
+
+            // vertical timing pattern
+            if (matrix[i][6] === null) {
+                matrix[i][6] = bit;
+            }
+
+            // horizontal timing pattern
+            if (matrix[6][i] === null) {
+                matrix[6][i] = bit;
+            }
+        }
+    }
+
+    /**
+     * Add format info to matrix
+     *
+     * @static
+     * @param {Nullable<boolean>[][]} matrix
+     * @param {number} matrixSize
+     * @param {number} maskPattern
+     * @param {ErrorCorrectionLevel} errorCorrectionLevel
+     * @memberof DataWizard
+     */
+    public static addFormatInfo(matrix: Nullable<boolean>[][], matrixSize: number, maskPattern: number, errorCorrectionLevel: ErrorCorrectionLevel): void {
+        const data: number = (errorCorrectionLevel << 3) | maskPattern;
+        const bits: number = getBCHVersionInfo(data);
+
+        for (let i: number = 0; i < 15; i++) {
+            const bit: boolean = ((bits >> i) & 1) === 1;
+
+            // Vertical
+            if (i < 6) {
+                matrix[i][8] = bit;
+            } else if (i < 8) {
+                matrix[i + 1][8] = bit;
+            } else {
+                matrix[matrixSize - 15 + i][8] = bit;
+            }
+
+            // Horizontal
+            if (i < 8) {
+                matrix[8][matrixSize - i - 1] = bit;
+            } else if (i < 9) {
+                matrix[8][15 - i - 1 + 1] = bit;
+            } else {
+                matrix[8][15 - i - 1] = bit;
+            }
+        }
+
+        // Fixed point
+        matrix[matrixSize - 8][8] = true;
+    }
+
+    /**
+     * Add version info to matrix
+     *
+     * @static
+     * @param {Nullable<boolean>[][]} matrix
+     * @param {number} matrixSize
+     * @param {number} version
+     * @memberof DataWizard
+     */
+    public static addVersionInfo(matrix: Nullable<boolean>[][], matrixSize: number, version: number): void {
+        if (version >= 7) {
+            const bits: number = getBCHVersion(version);
+
+            for (let i: number = 0; i < 18; i++) {
+                const bit: boolean = ((bits >> i) & 1) === 1;
+
+                matrix[(i / 3) >> 0][(i % 3) + matrixSize - 8 - 3] = bit;
+                matrix[(i % 3) + matrixSize - 8 - 3][(i / 3) >> 0] = bit;
+            }
+        }
+    }
+
+    /**
+     * Add codewords to matrix
+     *
+     * @static
+     * @param {Nullable<boolean>[][]} matrix
+     * @param {number} matrixSize
+     * @param {BitBuffer} data
+     * @param {number} maskPattern
+     * @memberof DataWizard
+     */
+    public static addCodewords(matrix: Nullable<boolean>[][], matrixSize: number, data: BitBuffer, maskPattern: number): void {
+        const bitLength: number = data.getLengthOfBits();
+
+        // Bit index into the data
+        let bitIndex: number = 0;
+
+        // Do the funny zigzag scan
+        for (let right: number = matrixSize - 1; right >= 1; right -= 2) {
+            // Index of right column in each column pair
+            if (right === 6) {
+                right = 5;
+            }
+
+            for (let vert: number = 0; vert < matrixSize; vert++) {
+                // Vertical counter
+                for (let j: number = 0; j < 2; j++) {
+                    // Actual x coordinate
+                    const x: number = right - j;
+                    const upward: boolean = ((right + 1) & 2) === 0;
+                    // Actual y coordinate
+                    const y: number = upward ? matrixSize - 1 - vert : vert;
+
+                    if (matrix[y][x] !== null) {
+                        continue;
+                    }
+
+                    let bit: boolean = false;
+
+                    if (bitIndex < bitLength) {
+                        bit = data.getBit(bitIndex++);
+                    }
+
+                    const maskFunc: MaskFunc = getMaskFunc(maskPattern);
+                    const invert: boolean = maskFunc(x, y);
+
+                    if (invert) {
+                        bit = !bit;
+                    }
+
+                    matrix[y][x] = bit;
+                }
+            }
+        }
     }
 }

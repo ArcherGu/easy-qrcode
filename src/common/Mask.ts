@@ -1,3 +1,11 @@
+import { Creator } from "../encode/Creator";
+import { Nullable } from "../utils/types_tool";
+
+const N1: number = 3;
+const N2: number = 3;
+const N3: number = 40;
+const N4: number = 10;
+
 /**
  * Mask Pattern
  * @readonly
@@ -44,4 +52,139 @@ export function getMaskFunc(maskPattern: number): MaskFunc {
         default:
             throw new Error(`invalid mask: ${maskPattern}`);
     }
+}
+
+function applyMaskPenaltyRule1Internal(matrix: Nullable<boolean>[][], matrixSize: number, isHorizontal: boolean): number {
+    let penalty: number = 0;
+
+    for (let i: number = 0; i < matrixSize; i++) {
+        let prevBit: Nullable<boolean> = null;
+        let numSameBitCells: number = 0;
+
+        for (let j: number = 0; j < matrixSize; j++) {
+            const bit: boolean = isHorizontal ? Creator.isFill(matrix, i, j) : Creator.isFill(matrix, j, i);
+
+            if (bit === prevBit) {
+                numSameBitCells++;
+
+                if (numSameBitCells === 5) {
+                    penalty += N1;
+                } else if (numSameBitCells > 5) {
+                    penalty++;
+                }
+            } else {
+                // set prev bit
+                prevBit = bit;
+                // include the cell itself
+                numSameBitCells = 1;
+            }
+        }
+    }
+
+    return penalty;
+}
+
+function applyMaskPenaltyRule1(matrix: Nullable<boolean>[][], matrixSize: number): number {
+    return applyMaskPenaltyRule1Internal(matrix, matrixSize, true) + applyMaskPenaltyRule1Internal(matrix, matrixSize, false);
+}
+
+function applyMaskPenaltyRule2(matrix: Nullable<boolean>[][], matrixSize: number): number {
+    let penalty: number = 0;
+
+    for (let y: number = 0; y < matrixSize - 1; y++) {
+        for (let x: number = 0; x < matrixSize - 1; x++) {
+            const value: boolean = Creator.isFill(matrix, y, x);
+
+            if (value === Creator.isFill(matrix, y, x + 1) && value === Creator.isFill(matrix, y + 1, x) && value === Creator.isFill(matrix, y + 1, x + 1)) {
+                penalty += N2;
+            }
+        }
+    }
+
+    return penalty;
+}
+
+function isFourWhite(matrix: Nullable<boolean>[][], matrixSize: number, rangeIndex: number, from: number, to: number, isHorizontal: boolean): boolean {
+    from = Math.max(from, 0);
+    to = Math.min(to, matrixSize);
+
+    for (let i: number = from; i < to; i++) {
+        const value: boolean = isHorizontal ? Creator.isFill(matrix, rangeIndex, i) : Creator.isFill(matrix, i, rangeIndex);
+
+        if (value) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function applyMaskPenaltyRule3(matrix: Nullable<boolean>[][], matrixSize: number): number {
+    let penalty: number = 0;
+
+    for (let y: number = 0; y < matrixSize; y++) {
+        for (let x: number = 0; x < matrixSize; x++) {
+            if (
+                x + 6 < matrixSize &&
+                Creator.isFill(matrix, y, x) &&
+                !Creator.isFill(matrix, y, x + 1) &&
+                Creator.isFill(matrix, y, x + 2) &&
+                Creator.isFill(matrix, y, x + 3) &&
+                Creator.isFill(matrix, y, x + 4) &&
+                !Creator.isFill(matrix, y, x + 5) &&
+                Creator.isFill(matrix, y, x + 6) &&
+                (isFourWhite(matrix, matrixSize, y, x - 4, x, true) || isFourWhite(matrix, matrixSize, y, x + 7, x + 11, true))
+            ) {
+                penalty += N3;
+            }
+
+            if (
+                y + 6 < matrixSize &&
+                Creator.isFill(matrix, y, x) &&
+                !Creator.isFill(matrix, y + 1, x) &&
+                Creator.isFill(matrix, y + 2, x) &&
+                Creator.isFill(matrix, y + 3, x) &&
+                Creator.isFill(matrix, y + 4, x) &&
+                !Creator.isFill(matrix, y + 5, x) &&
+                Creator.isFill(matrix, y + 6, x) &&
+                (isFourWhite(matrix, matrixSize, x, y - 4, y, false) || isFourWhite(matrix, matrixSize, x, y + 7, y + 11, false))
+            ) {
+                penalty += N3;
+            }
+        }
+    }
+
+    return penalty;
+}
+
+function applyMaskPenaltyRule4(matrix: Nullable<boolean>[][], matrixSize: number): number {
+    let numDarkCells: number = 0;
+
+    for (let y: number = 0; y < matrixSize; y++) {
+        for (let x: number = 0; x < matrixSize; x++) {
+            if (Creator.isFill(matrix, y, x)) {
+                numDarkCells++;
+            }
+        }
+    }
+
+    const numTotalCells: number = matrixSize * matrixSize;
+    const fivePercentVariances: number = Math.floor(Math.abs(numDarkCells * 20 - numTotalCells * 10) / numTotalCells);
+
+    return fivePercentVariances * N4;
+}
+
+/**
+ * @function calculateMaskPenalty
+ * @param {Creator} Creator
+ * @see https://www.thonky.com/qr-code-tutorial/data-masking
+ * @see https://github.com/zxing/zxing/blob/master/core/src/main/java/com/google/zxing/Creator/encoder/MaskUtil.java
+ */
+export function calculateMaskPenalty(matrix: Nullable<boolean>[][], matrixSize: number): number {
+    return (
+        applyMaskPenaltyRule1(matrix, matrixSize) +
+        applyMaskPenaltyRule2(matrix, matrixSize) +
+        applyMaskPenaltyRule3(matrix, matrixSize) +
+        applyMaskPenaltyRule4(matrix, matrixSize)
+    );
 }
