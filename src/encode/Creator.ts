@@ -1,5 +1,6 @@
+import { ErrorCorrectionLevel } from "../common/ErrorCorrection";
 import { MaskPattern } from "../common/Mask";
-import { CreatorOptions, ErrorCorrectionLevel } from "../common/QR";
+import { CreatorOptions } from "../common/QR";
 import { Nullable } from "../utils/types_tool";
 import { BitBuffer } from "./BitBuffer";
 import { BaseData, AlphanumericData, ByteData, NumericData, KanjiData } from "./data";
@@ -218,6 +219,12 @@ export class Creator {
         return this;
     }
 
+    /**
+     * Create QR pixel matrix
+     *
+     * @returns {Creator}
+     * @memberof Creator
+     */
     public create(): Creator {
         let buffer: BitBuffer;
         let rsBlocks: RSBlock[];
@@ -235,10 +242,15 @@ export class Creator {
         } else {
             // Use the specified version
             [buffer, rsBlocks, maxDataCount] = DataWizard.preprocessing(this.version, this.errorCorrectionLevel, this.enableECI, this.segments);
-            if (buffer.getLengthOfBits() > maxDataCount) {
-                throw new Error(`Too big content that this version(${this.version}) cannot fit`);
-            }
         }
+
+        if (buffer!.getLengthOfBits() > maxDataCount!) {
+            throw new Error(`Too big content that current version(${this.version}) cannot fit`);
+        }
+
+        // QR pixel matrix size = (version - 1) * 4 + 21
+        this.matrixSize = this.version * 4 + 17;
+        const rawData: BitBuffer = DataWizard.processing(buffer!, rsBlocks!, maxDataCount!);
 
         return this;
     }

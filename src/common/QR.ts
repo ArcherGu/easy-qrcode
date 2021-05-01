@@ -1,3 +1,4 @@
+import { ErrorCorrectionLevel } from "./ErrorCorrection";
 import { MaskPattern } from "./Mask";
 
 /**
@@ -10,23 +11,6 @@ import { MaskPattern } from "./Mask";
 export const enum ECIIndicator {
     SJIS = 20,
     UTF8 = 26
-}
-
-/**
- * Error Correction Level
- *
- * @export
- * @enum {number}
- */
-export const enum ErrorCorrectionLevel {
-    // 7%
-    L = 1,
-    // 15%
-    M = 0,
-    // 25%
-    Q = 3,
-    // 30%
-    H = 2
 }
 
 /**
