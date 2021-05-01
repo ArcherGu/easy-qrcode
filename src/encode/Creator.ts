@@ -206,24 +206,6 @@ export class Creator {
     }
 
     /**
-     * Whether this coordinate in the matrix is filled with boolean
-     *
-     * @static
-     * @param {Nullable<boolean>[][]} matrix
-     * @param {number} row
-     * @param {number} col
-     * @returns {boolean}
-     * @memberof Creator
-     */
-    public static isFill(matrix: Nullable<boolean>[][], row: number, col: number): boolean {
-        if (matrix[row][col] !== null) {
-            return !!matrix[row][col];
-        } else {
-            return false;
-        }
-    }
-
-    /**
      * Add content to creator
      *
      * @param {(QRContent | string)} content

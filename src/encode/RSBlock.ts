@@ -1,4 +1,5 @@
-import { ErrorCorrectionLevel } from "../common/QR";
+import { ErrorCorrectionLevel } from "../common/ErrorCorrection";
+
 
 /**
  * Reed–Solomon Block
