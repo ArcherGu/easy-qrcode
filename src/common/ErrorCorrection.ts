@@ -7,7 +7,7 @@ import * as GF from '../utils/galois_field';
  * @export
  * @enum {number}
  */
-export const enum ErrorCorrectionLevel {
+export enum ErrorCorrectionLevel {
     // 7%
     L = 1,
     // 15%

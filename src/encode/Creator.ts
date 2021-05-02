@@ -5,7 +5,7 @@ import { Nullable } from "../utils/types_tool";
 import { BitBuffer } from "./BitBuffer";
 import { BaseData, AlphanumericData, ByteData, NumericData, KanjiData } from "./data";
 import { DataWizard } from "./DataWizard";
-import { QRContent } from "./QRContent";
+import { QRContent, QRContentObj } from "./QRContent";
 import { RSBlock } from "./RSBlock";
 
 export class Creator {
@@ -206,18 +206,30 @@ export class Creator {
     }
 
     /**
+     * Clear the data
+     *
+     * @returns {Creator}
+     * @memberof Creator
+     */
+    public clear(): Creator {
+        this.segments.length = 0;
+        return this;
+    }
+
+    /**
      * Add content to creator
      *
      * @param {(QRContent | string)} content
      * @returns {Creator}
      * @memberof Creator
      */
-    public add(content: QRContent | string): Creator {
+    public add(content: QRContent | QRContentObj | string): Creator {
         let data: BaseData;
         if (content instanceof QRContent) {
             data = content.convertToData();
         }
         else if (toString.call(content) === '[object String]') {
+            content = content as string;
             const TEST_NUMERIC = /^\d+$/;
             const TEST_ALPHANUMERIC = /^[0-9A-Z$%*+-./: ]+$/;
             if (TEST_NUMERIC.test(content)) {
@@ -231,6 +243,10 @@ export class Creator {
             } catch (error) {
                 data = new ByteData(content);
             }
+        }
+        else if (content.hasOwnProperty('data') && content.hasOwnProperty('mode')) {
+            content = content as QRContentObj;
+            data = (new QRContent(content.data, content.mode)).convertToData();
         }
         else {
             throw new Error(`invalid content: ${content}`);
@@ -295,6 +311,10 @@ export class Creator {
             this.matrix = this.createMatrix(rawData, this.maskPattern!);
         }
 
+        return this;
+    }
+
+    public drawCanvas(canvas: HTMLElement): Creator {
         return this;
     }
 }

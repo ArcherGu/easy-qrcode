@@ -19,7 +19,7 @@ export const enum ECIIndicator {
  * @export
  * @enum {number}
  */
-export const enum QRMode {
+export enum QRMode {
     ECI = 0b0111,
     Numeric = 0b0001,
     Alphanumeric = 0b0010,

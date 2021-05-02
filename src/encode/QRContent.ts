@@ -1,6 +1,11 @@
 import { QRMode } from "../common/QR";
 import { AlphanumericData, BaseData, ByteData, KanjiData, NumericData } from "./data";
 
+export interface QRContentObj {
+    data: string,
+    mode: QRMode;
+}
+
 export class QRContent {
     constructor(
         public data: string,

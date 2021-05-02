@@ -10,7 +10,7 @@ const N4: number = 10;
  * @readonly
  * @enum {number}
  */
-export const enum MaskPattern {
+export enum MaskPattern {
     PATTERN000 = 0b000,
     PATTERN001 = 0b001,
     PATTERN010 = 0b010,
