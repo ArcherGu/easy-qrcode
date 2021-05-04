@@ -1,5 +1,5 @@
 import { ErrorCorrectionLevel, getErrorCorrectionPolynomial } from "../common/ErrorCorrection";
-import { QRMode } from "../common/QR";
+import { QRMatrix, QRMode } from "../common/QR";
 import { BitBuffer } from "./BitBuffer";
 import { BaseData, ByteData } from "./data";
 import { Polynomial } from "../common/Polynomial";
@@ -201,11 +201,11 @@ export class DataWizard {
      * Add finder pattern to matrix
      *
      * @static
-     * @param {Nullable<boolean>[][]} matrix
+     * @param {QRMatrix} matrix
      * @param {number} matrixSize
      * @memberof DataWizard
      */
-    public static addFinderPattern(matrix: Nullable<boolean>[][], matrixSize: number): void {
+    public static addFinderPattern(matrix: QRMatrix, matrixSize: number): void {
         const finderPattern = (row: number, col: number) => {
             for (let r: number = -1; r <= 7; r++) {
                 for (let c: number = -1; c <= 7; c++) {
@@ -235,11 +235,11 @@ export class DataWizard {
      * Add alignment pattern to matrix
      *
      * @static
-     * @param {Nullable<boolean>[][]} matrix
+     * @param {QRMatrix} matrix
      * @param {number} version
      * @memberof DataWizard
      */
-    public static addAlignmentPattern(matrix: Nullable<boolean>[][], version: number): void {
+    public static addAlignmentPattern(matrix: QRMatrix, version: number): void {
         const pos: number[] = getAlignmentPattern(version);
         const length: number = pos.length;
 
@@ -269,11 +269,11 @@ export class DataWizard {
      * Add timing pattern to matrix
      *
      * @static
-     * @param {Nullable<boolean>[][]} matrix
+     * @param {QRMatrix} matrix
      * @param {number} matrixSize
      * @memberof DataWizard
      */
-    public static addTimingPattern(matrix: Nullable<boolean>[][], matrixSize: number): void {
+    public static addTimingPattern(matrix: QRMatrix, matrixSize: number): void {
         for (let i: number = 8; i < (matrixSize - 8); i++) {
             const bit: boolean = i % 2 === 0;
 
@@ -293,13 +293,13 @@ export class DataWizard {
      * Add format info to matrix
      *
      * @static
-     * @param {Nullable<boolean>[][]} matrix
+     * @param {QRMatrix} matrix
      * @param {number} matrixSize
      * @param {number} maskPattern
      * @param {ErrorCorrectionLevel} errorCorrectionLevel
      * @memberof DataWizard
      */
-    public static addFormatInfo(matrix: Nullable<boolean>[][], matrixSize: number, maskPattern: number, errorCorrectionLevel: ErrorCorrectionLevel): void {
+    public static addFormatInfo(matrix: QRMatrix, matrixSize: number, maskPattern: number, errorCorrectionLevel: ErrorCorrectionLevel): void {
         const data: number = (errorCorrectionLevel << 3) | maskPattern;
         const bits: number = getBCHVersionInfo(data);
 
@@ -333,12 +333,12 @@ export class DataWizard {
      * Add version info to matrix
      *
      * @static
-     * @param {Nullable<boolean>[][]} matrix
+     * @param {QRMatrix} matrix
      * @param {number} matrixSize
      * @param {number} version
      * @memberof DataWizard
      */
-    public static addVersionInfo(matrix: Nullable<boolean>[][], matrixSize: number, version: number): void {
+    public static addVersionInfo(matrix: QRMatrix, matrixSize: number, version: number): void {
         if (version >= 7) {
             const bits: number = getBCHVersion(version);
 
@@ -355,13 +355,13 @@ export class DataWizard {
      * Add codewords to matrix
      *
      * @static
-     * @param {Nullable<boolean>[][]} matrix
+     * @param {QRMatrix} matrix
      * @param {number} matrixSize
      * @param {BitBuffer} data
      * @param {number} maskPattern
      * @memberof DataWizard
      */
-    public static addCodewords(matrix: Nullable<boolean>[][], matrixSize: number, data: BitBuffer, maskPattern: number): void {
+    public static addCodewords(matrix: QRMatrix, matrixSize: number, data: BitBuffer, maskPattern: number): void {
         const bitLength: number = data.getLengthOfBits();
 
         // Bit index into the data

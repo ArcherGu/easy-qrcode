@@ -1,3 +1,4 @@
+import { Nullable } from "../utils/types_tool";
 import { ErrorCorrectionLevel } from "./ErrorCorrection";
 import { MaskPattern } from "./Mask";
 
@@ -40,3 +41,5 @@ export interface CreatorOptions {
     errorCorrectionLevel?: ErrorCorrectionLevel;
     maskPattern?: MaskPattern;
 }
+
+export type QRMatrix = Nullable<boolean>[][];

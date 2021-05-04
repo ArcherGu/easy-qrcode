@@ -1,6 +1,6 @@
 import { ErrorCorrectionLevel } from "../common/ErrorCorrection";
 import { calculateMaskPenalty, MaskPattern } from "../common/Mask";
-import { CreatorOptions } from "../common/QR";
+import { CreatorOptions, QRMatrix } from "../common/QR";
 import { Nullable } from "../utils/types_tool";
 import { BitBuffer } from "./BitBuffer";
 import { BaseData, AlphanumericData, ByteData, NumericData, KanjiData } from "./data";
@@ -15,7 +15,7 @@ export class Creator {
     private maskPattern: Nullable<MaskPattern> = null;
     private segments: BaseData[] = [];
     private matrixSize: number = 0;
-    private matrix: Nullable<boolean>[][] = [];
+    private matrix: QRMatrix = [];
 
     constructor(opts?: CreatorOptions) {
         if (opts !== undefined) {
@@ -48,7 +48,7 @@ export class Creator {
      * @returns {boolean[][]}
      * @memberof Creator
      */
-    public getMatrix(): Nullable<boolean>[][] {
+    public getMatrix(): QRMatrix {
         return this.matrix;
     }
 
@@ -183,7 +183,7 @@ export class Creator {
         return this;
     }
 
-    private createMatrix(data: BitBuffer, maskPattern: number): Nullable<boolean>[][] {
+    private createMatrix(data: BitBuffer, maskPattern: number): QRMatrix {
         const matrix: (Nullable<boolean>)[][] = [];
 
         // fill the matrix by null
@@ -291,7 +291,7 @@ export class Creator {
         const rawData: BitBuffer = DataWizard.processing(buffer!, rsBlocks!, maxDataCount!);
 
         if (this.autoMask) {
-            let bestMatrix: Nullable<boolean>[][];
+            let bestMatrix: QRMatrix;
             let minPenalty: number = Number.MAX_VALUE;
 
             for (let maskPattern: number = 0; maskPattern < 8; maskPattern++) {
@@ -311,10 +311,6 @@ export class Creator {
             this.matrix = this.createMatrix(rawData, this.maskPattern!);
         }
 
-        return this;
-    }
-
-    public drawCanvas(canvas: HTMLElement): Creator {
         return this;
     }
 }

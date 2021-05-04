@@ -1,4 +1,5 @@
 import { Nullable } from "../utils/types_tool";
+import { QRMatrix } from "./QR";
 
 const N1: number = 3;
 const N2: number = 3;
@@ -53,7 +54,7 @@ export function getMaskFunc(maskPattern: number): MaskFunc {
     }
 }
 
-function isFill(matrix: Nullable<boolean>[][], row: number, col: number): boolean {
+function isFill(matrix: QRMatrix, row: number, col: number): boolean {
     if (matrix[row][col] !== null) {
         return !!matrix[row][col];
     } else {
@@ -61,7 +62,7 @@ function isFill(matrix: Nullable<boolean>[][], row: number, col: number): boolea
     }
 }
 
-function applyMaskPenaltyRule1Internal(matrix: Nullable<boolean>[][], matrixSize: number, isHorizontal: boolean): number {
+function applyMaskPenaltyRule1Internal(matrix: QRMatrix, matrixSize: number, isHorizontal: boolean): number {
     let penalty: number = 0;
 
     for (let i: number = 0; i < matrixSize; i++) {
@@ -91,11 +92,11 @@ function applyMaskPenaltyRule1Internal(matrix: Nullable<boolean>[][], matrixSize
     return penalty;
 }
 
-function applyMaskPenaltyRule1(matrix: Nullable<boolean>[][], matrixSize: number): number {
+function applyMaskPenaltyRule1(matrix: QRMatrix, matrixSize: number): number {
     return applyMaskPenaltyRule1Internal(matrix, matrixSize, true) + applyMaskPenaltyRule1Internal(matrix, matrixSize, false);
 }
 
-function applyMaskPenaltyRule2(matrix: Nullable<boolean>[][], matrixSize: number): number {
+function applyMaskPenaltyRule2(matrix: QRMatrix, matrixSize: number): number {
     let penalty: number = 0;
 
     for (let y: number = 0; y < matrixSize - 1; y++) {
@@ -111,7 +112,7 @@ function applyMaskPenaltyRule2(matrix: Nullable<boolean>[][], matrixSize: number
     return penalty;
 }
 
-function isFourWhite(matrix: Nullable<boolean>[][], matrixSize: number, rangeIndex: number, from: number, to: number, isHorizontal: boolean): boolean {
+function isFourWhite(matrix: QRMatrix, matrixSize: number, rangeIndex: number, from: number, to: number, isHorizontal: boolean): boolean {
     from = Math.max(from, 0);
     to = Math.min(to, matrixSize);
 
@@ -126,7 +127,7 @@ function isFourWhite(matrix: Nullable<boolean>[][], matrixSize: number, rangeInd
     return true;
 }
 
-function applyMaskPenaltyRule3(matrix: Nullable<boolean>[][], matrixSize: number): number {
+function applyMaskPenaltyRule3(matrix: QRMatrix, matrixSize: number): number {
     let penalty: number = 0;
 
     for (let y: number = 0; y < matrixSize; y++) {
@@ -164,7 +165,7 @@ function applyMaskPenaltyRule3(matrix: Nullable<boolean>[][], matrixSize: number
     return penalty;
 }
 
-function applyMaskPenaltyRule4(matrix: Nullable<boolean>[][], matrixSize: number): number {
+function applyMaskPenaltyRule4(matrix: QRMatrix, matrixSize: number): number {
     let numDarkCells: number = 0;
 
     for (let y: number = 0; y < matrixSize; y++) {
@@ -185,13 +186,13 @@ function applyMaskPenaltyRule4(matrix: Nullable<boolean>[][], matrixSize: number
  * Calculate Mask Penalty
  *
  * @export
- * @param {Nullable<boolean>[][]} matrix
+ * @param {QRMatrix} matrix
  * @param {number} matrixSize
  * @returns {number}
  * @see https://www.thonky.com/qr-code-tutorial/data-masking
  * @see https://github.com/zxing/zxing/blob/master/core/src/main/java/com/google/zxing/Creator/encoder/MaskUtil.java
  */
-export function calculateMaskPenalty(matrix: Nullable<boolean>[][], matrixSize: number): number {
+export function calculateMaskPenalty(matrix: QRMatrix, matrixSize: number): number {
     return (
         applyMaskPenaltyRule1(matrix, matrixSize) +
         applyMaskPenaltyRule2(matrix, matrixSize) +
