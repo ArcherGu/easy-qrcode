@@ -27,7 +27,6 @@ export abstract class BaseData {
      *
      * @param {number} version
      * @returns {number}
-     * @memberof BaseMode
      */
     public getCharCountIndexBitLength(version: number): number {
         const mode: QRMode = this.mode;

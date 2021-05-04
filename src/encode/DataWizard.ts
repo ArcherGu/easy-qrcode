@@ -28,7 +28,6 @@ export class DataWizard {
      * @param {boolean} enableECI
      * @param {BaseData[]} segments
      * @returns {[BitBuffer, RSBlock[], number]}
-     * @memberof DataWizard
      */
     public static preprocessing(
         version: number,
@@ -65,7 +64,6 @@ export class DataWizard {
      * @static
      * @param {number} indicator
      * @param {BitBuffer} buffer
-     * @memberof DataWizard
      */
     public static handleECI(indicator: number, buffer: BitBuffer) {
         // Range: 000000 - 999999
@@ -94,7 +92,6 @@ export class DataWizard {
      * @param {RSBlock[]} rsBlocks
      * @param {number} maxDataCount
      * @returns {BitBuffer}
-     * @memberof DataWizard
      */
     public static processing(buffer: BitBuffer, rsBlocks: RSBlock[], maxDataCount: number): BitBuffer {
         // terminator
@@ -132,7 +129,6 @@ export class DataWizard {
      * @param {BitBuffer} buffer
      * @param {RSBlock[]} rsBlocks
      * @returns {BitBuffer}
-     * @memberof DataWizard
      */
     public static addErrorCorrection(buffer: BitBuffer, rsBlocks: RSBlock[]): BitBuffer {
         let offset: number = 0;
@@ -203,7 +199,6 @@ export class DataWizard {
      * @static
      * @param {QRMatrix} matrix
      * @param {number} matrixSize
-     * @memberof DataWizard
      */
     public static addFinderPattern(matrix: QRMatrix, matrixSize: number): void {
         const finderPattern = (row: number, col: number) => {
@@ -237,7 +232,6 @@ export class DataWizard {
      * @static
      * @param {QRMatrix} matrix
      * @param {number} version
-     * @memberof DataWizard
      */
     public static addAlignmentPattern(matrix: QRMatrix, version: number): void {
         const pos: number[] = getAlignmentPattern(version);
@@ -271,7 +265,6 @@ export class DataWizard {
      * @static
      * @param {QRMatrix} matrix
      * @param {number} matrixSize
-     * @memberof DataWizard
      */
     public static addTimingPattern(matrix: QRMatrix, matrixSize: number): void {
         for (let i: number = 8; i < (matrixSize - 8); i++) {
@@ -297,7 +290,6 @@ export class DataWizard {
      * @param {number} matrixSize
      * @param {number} maskPattern
      * @param {ErrorCorrectionLevel} errorCorrectionLevel
-     * @memberof DataWizard
      */
     public static addFormatInfo(matrix: QRMatrix, matrixSize: number, maskPattern: number, errorCorrectionLevel: ErrorCorrectionLevel): void {
         const data: number = (errorCorrectionLevel << 3) | maskPattern;
@@ -336,7 +328,6 @@ export class DataWizard {
      * @param {QRMatrix} matrix
      * @param {number} matrixSize
      * @param {number} version
-     * @memberof DataWizard
      */
     public static addVersionInfo(matrix: QRMatrix, matrixSize: number, version: number): void {
         if (version >= 7) {
@@ -359,7 +350,6 @@ export class DataWizard {
      * @param {number} matrixSize
      * @param {BitBuffer} data
      * @param {number} maskPattern
-     * @memberof DataWizard
      */
     public static addCodewords(matrix: QRMatrix, matrixSize: number, data: BitBuffer, maskPattern: number): void {
         const bitLength: number = data.getLengthOfBits();

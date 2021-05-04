@@ -33,9 +33,18 @@ export enum QRMode {
 }
 
 /**
- * QR Creator Options
+ * QR Creator Options.
+ *
+ * @export
+ * @interface CreatorOptions
  */
 export interface CreatorOptions {
+    /**
+     * the version for QR code
+     *
+     * @type {number}
+     * @memberof CreatorOptions
+     */
     version?: number;
     enableECI?: boolean;
     errorCorrectionLevel?: ErrorCorrectionLevel;

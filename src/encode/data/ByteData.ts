@@ -14,7 +14,6 @@ export class ByteData extends BaseData {
      *
      * @private
      * @type {number}
-     * @memberof ByteData
      */
     private indicator: number = ECIIndicator.UTF8;
 

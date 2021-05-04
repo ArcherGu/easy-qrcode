@@ -8,6 +8,12 @@ import { DataWizard } from "./DataWizard";
 import { QRContent, QRContentObj } from "./QRContent";
 import { RSBlock } from "./RSBlock";
 
+/**
+ * The creator can be used to generate the QR code boolean matrix.
+ *
+ * @export
+ * @class Creator
+ */
 export class Creator {
     private version: number = 0;
     private enableECI: boolean = false;
@@ -43,41 +49,37 @@ export class Creator {
     }
 
     /**
-     * Get the QR pixel matrix
+     * Get the QR boolean matrix.
      *
-     * @returns {boolean[][]}
-     * @memberof Creator
+     * @returns {QRMatrix}
      */
     public getMatrix(): QRMatrix {
         return this.matrix;
     }
 
     /**
-     * Get the QR pixel matrix size
+     * Get the QR boolean matrix size.
      *
      * @returns {number}
-     * @memberof Creator
      */
     public getMatrixSize(): number {
         return this.matrixSize;
     }
 
     /**
-     * Get version
+     * Get version.
      *
      * @returns {number}
-     * @memberof Creator
      */
     public getVersion(): number {
         return this.version;
     }
 
     /**
-     * Set version, 1 - 40
+     * Set version, 1 - 40.
      *
      * @param {number} version
      * @returns {Encoder}
-     * @memberof Creator
      */
     public setVersion(version: number): Creator {
         this.version = Math.min(40, Math.max(0, version >> 0));
@@ -86,21 +88,19 @@ export class Creator {
     }
 
     /**
-     * Get the error correction level for this creator
+     * Get the error correction level for this creator.
      *
      * @returns {ErrorCorrectionLevel}
-     * @memberof Creator
      */
     public getErrorCorrectionLevel(): ErrorCorrectionLevel {
         return this.errorCorrectionLevel;
     }
 
     /**
-     * Set the error correction level for this creator
+     * Set the error correction level for this creator.
      *
      * @param {ErrorCorrectionLevel} errorCorrectionLevel
      * @returns {Encoder}
-     * @memberof Creator
      */
     public setErrorCorrectionLevel(errorCorrectionLevel: ErrorCorrectionLevel): Creator {
         switch (errorCorrectionLevel) {
@@ -116,21 +116,19 @@ export class Creator {
     }
 
     /**
-     * Get mask pattern
+     * Get mask pattern.
      *
      * @returns {Nullable<MaskPattern>}
-     * @memberof Creator
      */
     public getMaskPattern(): Nullable<MaskPattern> {
         return this.maskPattern;
     }
 
     /**
-     * Set mask pattern
+     * Set mask pattern.
      *
      * @param {MaskPattern} maskPattern
      * @returns {Creator}
-     * @memberof Creator
      */
     public setMaskPattern(maskPattern: MaskPattern): Creator {
         switch (maskPattern) {
@@ -150,10 +148,9 @@ export class Creator {
     }
 
     /**
-     * Clear mask pattern
+     * Clear mask pattern.
      *
      * @returns {Creator}
-     * @memberof Creator
      */
     public clearMaskPattern(): Creator {
         this.maskPattern = null;
@@ -161,21 +158,19 @@ export class Creator {
     }
 
     /**
-     * Get ECI status
+     * Get ECI status.
      *
      * @returns {boolean}
-     * @memberof Creator
      */
     public getECIStatus(): boolean {
         return this.enableECI;
     }
 
     /**
-     * Set ECI Status
+     * Set ECI Status.
      *
      * @param {boolean} enableECI
      * @returns {Creator}
-     * @memberof Creator
      */
     public setECIStatus(enableECI: boolean): Creator {
         this.enableECI = enableECI;
@@ -206,10 +201,9 @@ export class Creator {
     }
 
     /**
-     * Clear the data
+     * Clear the data.
      *
      * @returns {Creator}
-     * @memberof Creator
      */
     public clear(): Creator {
         this.segments.length = 0;
@@ -217,39 +211,38 @@ export class Creator {
     }
 
     /**
-     * Add content to creator
+     * Add content to creator.
      *
      * @param {(QRContent | string)} content
      * @returns {Creator}
-     * @memberof Creator
      */
-    public add(content: QRContent | QRContentObj | string): Creator {
+    public add(qrContent: QRContent | QRContentObj | string): Creator {
         let data: BaseData;
-        if (content instanceof QRContent) {
-            data = content.convertToData();
+        if (qrContent instanceof QRContent) {
+            data = qrContent.getQRData();
         }
-        else if (toString.call(content) === '[object String]') {
-            content = content as string;
+        else if (toString.call(qrContent) === '[object String]') {
+            qrContent = qrContent as string;
             const TEST_NUMERIC = /^\d+$/;
             const TEST_ALPHANUMERIC = /^[0-9A-Z$%*+-./: ]+$/;
-            if (TEST_NUMERIC.test(content)) {
-                data = new NumericData(content);
-            } else if (TEST_ALPHANUMERIC.test(content)) {
-                data = new AlphanumericData(content);
+            if (TEST_NUMERIC.test(qrContent)) {
+                data = new NumericData(qrContent);
+            } else if (TEST_ALPHANUMERIC.test(qrContent)) {
+                data = new AlphanumericData(qrContent);
             }
 
             try {
-                data = new KanjiData(content);
+                data = new KanjiData(qrContent);
             } catch (error) {
-                data = new ByteData(content);
+                data = new ByteData(qrContent);
             }
         }
-        else if (content.hasOwnProperty('data') && content.hasOwnProperty('mode')) {
-            content = content as QRContentObj;
-            data = (new QRContent(content.data, content.mode)).convertToData();
+        else if (qrContent.hasOwnProperty('data') && qrContent.hasOwnProperty('mode')) {
+            qrContent = qrContent as QRContentObj;
+            data = (new QRContent(qrContent.content, qrContent.mode)).getQRData();
         }
         else {
-            throw new Error(`invalid content: ${content}`);
+            throw new Error(`invalid content: ${qrContent}`);
         }
 
         this.segments.push(data);
@@ -258,10 +251,9 @@ export class Creator {
     }
 
     /**
-     * Create QR pixel matrix
+     * Create QR boolean matrix.
      *
      * @returns {Creator}
-     * @memberof Creator
      */
     public create(): Creator {
         let buffer: BitBuffer;
@@ -286,7 +278,7 @@ export class Creator {
             throw new Error(`Too big content that current version(${this.version}) cannot fit`);
         }
 
-        // QR pixel matrix size = (version - 1) * 4 + 21
+        // QR boolean matrix size = (version - 1) * 4 + 21
         this.matrixSize = this.version * 4 + 17;
         const rawData: BitBuffer = DataWizard.processing(buffer!, rsBlocks!, maxDataCount!);
 

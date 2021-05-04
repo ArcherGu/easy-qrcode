@@ -12,7 +12,6 @@ export class KanjiData extends BaseData {
     /**
      * @override
      * @returns {number}
-     * @memberof KanjiData
      */
     public getLength(): number {
         return Math.floor(this.bytes.length / 2);

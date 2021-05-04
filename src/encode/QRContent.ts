@@ -1,39 +1,53 @@
 import { QRMode } from "../common/QR";
-import { AlphanumericData, BaseData, ByteData, KanjiData, NumericData } from "./data";
+import { BaseData, AlphanumericData, ByteData, KanjiData, NumericData } from "./data";
 
+/**
+ * Set the content object and add it to the creator.
+ *
+ * @export
+ * @interface QRContentObj
+ */
 export interface QRContentObj {
-    data: string,
+    content: string,
     mode: QRMode;
 }
 
+/**
+ * Create an instance of the content and add it to the creator.
+ * 
+ * @export
+ * @class QRContent
+ */
 export class QRContent {
+    private data: BaseData;
     constructor(
-        public data: string,
-        public mode: QRMode
-    ) { }
-
-    /**
-     * Convert content to QR data
-     *
-     * @returns {BaseData}
-     * @memberof QRContent
-     */
-    public convertToData(): BaseData {
+        private content: string,
+        private mode: QRMode
+    ) {
         try {
             switch (this.mode) {
                 case QRMode.Numeric:
-                    return new NumericData(this.data);
+                    this.data = new NumericData(this.content);
                 case QRMode.Alphanumeric:
-                    return new AlphanumericData(this.data);
+                    this.data = new AlphanumericData(this.content);
                 case QRMode.Byte:
-                    return new ByteData(this.data);
+                    this.data = new ByteData(this.content);
                 case QRMode.Kanji:
-                    return new KanjiData(this.data);
+                    this.data = new KanjiData(this.content);
                 default:
                     throw new Error(`invalid mode: ${this.mode}`);
             }
         } catch (error) {
-            throw new Error(`mode(${this.mode}) and data(${this.data}) not match`);
+            throw new Error(`mode(${this.mode}) and content(${this.content}) not match`);
         }
+    }
+
+    /**
+     * Get the QR data for this content's QR mode.
+     *
+     * @returns {BaseData}
+     */
+    public getQRData(): BaseData {
+        return this.data;
     }
 }
