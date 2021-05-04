@@ -1,5 +1,5 @@
-import { Voidable } from "../utils/types_tool";
 import { QRMatrix } from "../common/QR";
+import { drawCorner, fillCorner, getCorners, updateCanvas } from "./helper";
 
 export type QRStyle = 'smooth' | 'radius';
 
@@ -44,7 +44,7 @@ export class Renderer {
         }
 
         if (size) {
-            canvasQR = resize || !canvas ? Renderer.updateCanvas(canvas, size) : canvas;
+            canvasQR = resize || !canvas ? updateCanvas(canvas, size) : canvas;
         } else {
             size = canvas!.width;
             canvasQR = canvas!;
@@ -52,16 +52,22 @@ export class Renderer {
 
         const ctx = canvasQR.getContext('2d')!;
         ctx.clearRect(0, 0, canvasQR.width, canvasQR.height);
-        gridSize = Math.ceil(size / qrCount);
+        gridSize = Math.floor(size / qrCount);
 
         for (let i = 0; i < matrix.length; i++) {
-            const rowData = matrix[i];
-            for (let j = 0; j < rowData.length; j++) {
-                const col = rowData[j];
+            for (let j = 0; j < matrix[i].length; j++) {
                 const x = j * gridSize;
                 const y = i * gridSize;
-                if (col) {
-                    ctx.fillRect(x, y, gridSize, gridSize);
+
+                if (this.opts.style === 'radius') {
+                    if (matrix[i][j]) this.drawRadiusGrid(ctx, x, y, gridSize);
+                }
+                else if (this.opts.style === 'smooth') {
+                    const corners = getCorners(matrix, i, j);
+                    this.drawSmoothGrid(ctx, x, y, gridSize, corners, !!(matrix[i][j]));
+                }
+                else {
+                    if (matrix[i][j]) ctx.fillRect(x, y, gridSize, gridSize);
                 }
             }
         }
@@ -69,24 +75,87 @@ export class Renderer {
         return canvasQR;
     }
 
-    public static resizeCanvas(canvas: HTMLCanvasElement, width: number, height?: number): HTMLCanvasElement {
-        canvas.width = width;
-        canvas.height = height == null ? width : height;
-        return canvas;
+    private drawRadiusGrid(ctx: CanvasRenderingContext2D, x: number, y: number, size: number) {
+        const value = this.opts.styleValue && this.opts.styleValue > 0 ? this.opts.styleValue : 0;
+        let radius = value * size / 2;
+        radius = radius > (size / 2) ? size / 2 : radius;
+        ctx.beginPath();
+        ctx.moveTo(x + 0.5 * size, y);
+        drawCorner(ctx, x + size, y, x + size, y + 0.5 * size, radius);
+        drawCorner(ctx, x + size, y + size, x + 0.5 * size, y + size, radius);
+        drawCorner(ctx, x, y + size, x, y + 0.5 * size, radius);
+        drawCorner(ctx, x, y, x + 0.5 * size, y, radius);
+        ctx.fill();
     }
 
-    public static createCanvas(width: number, height?: number): HTMLCanvasElement {
-        const canvas = document.createElement('canvas');
-        canvas.width = width;
-        canvas.height = height == null ? width : height;
-        return canvas;
-    }
+    private drawSmoothGrid(ctx: CanvasRenderingContext2D, x: number, y: number, size: number, corners: number[], isFill: boolean) {
+        const value = this.opts.styleValue && this.opts.styleValue > 0 ? this.opts.styleValue : 0;
+        let radius = value * size / 2;
+        radius = radius > (size / 2) ? size / 2 : radius;
 
-    public static updateCanvas(canvas: Voidable<HTMLCanvasElement>, width: number, height?: number): HTMLCanvasElement {
-        if (canvas) {
-            return Renderer.resizeCanvas(canvas, width, height);
+        if (isFill) {
+            ctx.beginPath();
+            ctx.moveTo(x + 0.5 * size, y);
+            drawCorner(
+                ctx,
+                x + size,
+                y,
+                x + size,
+                y + 0.5 * size,
+                corners[1] ? 0 : radius,
+            );
+            drawCorner(
+                ctx,
+                x + size,
+                y + size,
+                x + 0.5 * size,
+                y + size,
+                corners[2] ? 0 : radius,
+            );
+            drawCorner(ctx, x, y + size, x, y + 0.5 * size, corners[3] ? 0 : radius);
+            drawCorner(ctx, x, y, x + 0.5 * size, y, corners[0] ? 0 : radius);
+            ctx.fill();
         }
-
-        return Renderer.createCanvas(width, height);
+        else {
+            if (corners[0] === 2) {
+                fillCorner(ctx, x, y + 0.5 * size, x, y, x + 0.5 * size, y, radius);
+            }
+            if (corners[1] === 2) {
+                fillCorner(
+                    ctx,
+                    x + 0.5 * size,
+                    y,
+                    x + size,
+                    y,
+                    x + size,
+                    y + 0.5 * size,
+                    radius,
+                );
+            }
+            if (corners[2] === 2) {
+                fillCorner(
+                    ctx,
+                    x + size,
+                    y + 0.5 * size,
+                    x + size,
+                    y + size,
+                    x + 0.5 * size,
+                    y + size,
+                    radius,
+                );
+            }
+            if (corners[3] === 2) {
+                fillCorner(
+                    ctx,
+                    x + 0.5 * size,
+                    y + size,
+                    x,
+                    y + size,
+                    x,
+                    y + 0.5 * size,
+                    radius,
+                );
+            }
+        }
     }
 }

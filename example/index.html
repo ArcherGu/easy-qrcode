@@ -14,7 +14,9 @@
     <script type="text/javascript">
         const creator = new EQ.Creator();
         const renderer = new EQ.Renderer({
-            size: 600
+            size: 400,
+            style: "smooth",
+            styleValue: 20
         });
         creator.add(new EQ.QRContent("1231", EQ.QRMode.Numeric));
         creator.add(new EQ.QRContent("ABC", EQ.QRMode.Alphanumeric));
