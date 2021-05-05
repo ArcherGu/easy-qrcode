@@ -1,16 +1,62 @@
 import { QRMatrix } from "../common/QR";
 import { drawCorner, fillCorner, getCorners, updateCanvas } from "./helper";
 
+/**
+ * QR code rendering style.
+ * 
+ * smooth: The filled grids are linked by smooth fillets.
+ * 
+ * radius: The filled grids are decorated with fillets around them.
+ */
 export type QRStyle = 'smooth' | 'radius';
 
+/**
+ * The options for renderer
+ *
+ * @export
+ * @interface RenderOptions
+ */
 export interface RenderOptions {
+    /**
+     * QR code image size, if {@link gridSize} is specified, size will be ignored.
+     *
+     * @type {number}
+     */
     size?: number;
+    /**
+     * QR code grid size, the pixel size occupied by the one grid.
+     *
+     * @type {number}
+     */
     gridSize?: number;
+    /**
+     * Whether resize canvas.
+     *
+     * @type {boolean}
+     */
     resize?: boolean;
+    /**
+     * Style for the QR code image.
+     *
+     * @type {QRStyle}
+     */
     style?: QRStyle;
+    /**
+     * The value to which the style has changed.
+     *
+     * @type {number}
+     */
     styleValue?: number;
 }
 
+/**
+ * QR code's renderer, which relies on canvas, is used for the boolean matrix provided by creator.
+ *
+ * You can design your own renderer to render the boolean matrix provided by creator.
+ * 
+ * @export
+ * @class Renderer
+ */
 export class Renderer {
     private opts: RenderOptions = {};
     constructor(
@@ -19,6 +65,12 @@ export class Renderer {
         this.updateOptions(opts);
     }
 
+    /**
+     * Update the options.
+     *
+     * @param {RenderOptions} [opts]
+     * @returns {Renderer}
+     */
     public updateOptions(opts?: RenderOptions): Renderer {
         if (!opts) {
             return this;
@@ -29,6 +81,15 @@ export class Renderer {
         return this;
     }
 
+    /**
+     * Draw QR code on canvas.
+     * 
+     * If canvas are not provided, one will be created automatically.
+     *
+     * @param {QRMatrix} matrix
+     * @param {HTMLCanvasElement} [canvas]
+     * @returns {HTMLCanvasElement}
+     */
     public drawCanvas(matrix: QRMatrix, canvas?: HTMLCanvasElement): HTMLCanvasElement {
         const qrCount = matrix.length;
         let canvasQR: HTMLCanvasElement;

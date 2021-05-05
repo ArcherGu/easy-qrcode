@@ -1,10 +1,6 @@
 {
     "entryPoints": "./src/index.ts",
-    "exclude": [
-        "./src/helper/*.ts"
-    ],
     "excludePrivate": true,
-    "includes": "./docs/md",
     "includeVersion": true,
     "out": "./docs/typedoc"
 }

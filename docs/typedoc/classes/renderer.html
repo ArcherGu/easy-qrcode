@@ -65,6 +65,18 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>QR code&#39;s renderer, which relies on canvas, is used for the boolean matrix provided by creator.</p>
+					</div>
+					<p>You can design your own renderer to render the boolean matrix provided by creator.</p>
+					<dl class="tsd-comment-tags">
+						<dt>export</dt>
+						<dd></dd>
+					</dl>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -105,7 +117,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/af76a7b/src/renderer/Renderer.ts#L15">renderer/Renderer.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/6f5c7e4/src/renderer/Renderer.ts#L61">renderer/Renderer.ts:61</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -125,19 +137,25 @@
 					<a name="drawcanvas" class="tsd-anchor"></a>
 					<h3>draw<wbr>Canvas</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">draw<wbr>Canvas<span class="tsd-signature-symbol">(</span>matrix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">QRMatrix</span>, canvas<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">HTMLCanvasElement</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLCanvasElement</span></li>
+						<li class="tsd-signature tsd-kind-icon">draw<wbr>Canvas<span class="tsd-signature-symbol">(</span>matrix<span class="tsd-signature-symbol">: </span><a href="../modules.html#qrmatrix" class="tsd-signature-type" data-tsd-kind="Type alias">QRMatrix</a>, canvas<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">HTMLCanvasElement</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLCanvasElement</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/af76a7b/src/renderer/Renderer.ts#L32">renderer/Renderer.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/6f5c7e4/src/renderer/Renderer.ts#L93">renderer/Renderer.ts:93</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Draw QR code on canvas.</p>
+								</div>
+								<p>If canvas are not provided, one will be created automatically.</p>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>matrix: <span class="tsd-signature-type">QRMatrix</span></h5>
+									<h5>matrix: <a href="../modules.html#qrmatrix" class="tsd-signature-type" data-tsd-kind="Type alias">QRMatrix</a></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> canvas: <span class="tsd-signature-type">HTMLCanvasElement</span></h5>
@@ -157,9 +175,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/af76a7b/src/renderer/Renderer.ts#L22">renderer/Renderer.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/6f5c7e4/src/renderer/Renderer.ts#L74">renderer/Renderer.ts:74</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Update the options.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -192,19 +215,7 @@
 						<a href="../enums/qrmode.html" class="tsd-kind-icon">QRMode</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="alphanumericdata.html" class="tsd-kind-icon">Alphanumeric<wbr>Data</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="bytedata.html" class="tsd-kind-icon">Byte<wbr>Data</a>
-					</li>
-					<li class=" tsd-kind-class">
 						<a href="creator.html" class="tsd-kind-icon">Creator</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="kanjidata.html" class="tsd-kind-icon">Kanji<wbr>Data</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="numericdata.html" class="tsd-kind-icon">Numeric<wbr>Data</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="qrcontent.html" class="tsd-kind-icon">QRContent</a>
@@ -231,7 +242,13 @@
 						<a href="../interfaces/creatoroptions.html" class="tsd-kind-icon">Creator<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="../interfaces/qrcontentobj.html" class="tsd-kind-icon">QRContent<wbr>Obj</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="../interfaces/renderoptions.html" class="tsd-kind-icon">Render<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../modules.html#qrmatrix" class="tsd-kind-icon">QRMatrix</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="../modules.html#qrstyle" class="tsd-kind-icon">QRStyle</a>
@@ -247,14 +264,10 @@
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
 			</ul>
 		</div>
 	</div>

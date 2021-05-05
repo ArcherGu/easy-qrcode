@@ -68,9 +68,13 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>QR Mode</p>
+						<p>QR Mode (datatype)</p>
 					</div>
+					<p>The amount of data that can be stored in the QR code symbol depends on the datatype (mode, or input character set).</p>
 					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="https://en.wikipedia.org/wiki/QR_code#Storage">https://en.wikipedia.org/wiki/QR_code#Storage</a></p>
+						</dd>
 						<dt>readonly</dt>
 						<dd></dd>
 						<dt>export</dt>
@@ -88,12 +92,8 @@
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="qrmode.html#alphanumeric" class="tsd-kind-icon">Alphanumeric</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="qrmode.html#byte" class="tsd-kind-icon">Byte</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="qrmode.html#eci" class="tsd-kind-icon">ECI</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="qrmode.html#fnc1firstposition" class="tsd-kind-icon">FNC1<wbr>First<wbr>Position</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="qrmode.html#fnc1secondposition" class="tsd-kind-icon">FNC1<wbr>Second<wbr>Position</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="qrmode.html#kanji" class="tsd-kind-icon">Kanji</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="qrmode.html#numeric" class="tsd-kind-icon">Numeric</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="qrmode.html#structuredappend" class="tsd-kind-icon">Structured<wbr>Append</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="qrmode.html#terminator" class="tsd-kind-icon">Terminator</a></li>
 							</ul>
 						</section>
 					</div>
@@ -107,9 +107,19 @@
 					<div class="tsd-signature tsd-kind-icon">Alphanumeric<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 2</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/af76a7b/src/common/QR.ts#L26">common/QR.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/6f5c7e4/src/common/QR.ts#L37">common/QR.ts:37</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>0–9, A–Z (upper-case only), space, $, %, *, +, -, ., /, :</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>see</dt>
+							<dd><p><a href="https://en.wikipedia.org/wiki/Alphanumeric">https://en.wikipedia.org/wiki/Alphanumeric</a></p>
+							</dd>
+						</dl>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="byte" class="tsd-anchor"></a>
@@ -117,9 +127,22 @@
 					<div class="tsd-signature tsd-kind-icon">Byte<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 4</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/af76a7b/src/common/QR.ts#L27">common/QR.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/6f5c7e4/src/common/QR.ts#L44">common/QR.ts:44</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Binary/byte</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>see</dt>
+							<dd><p><a href="https://en.wikipedia.org/wiki/Binary_number">https://en.wikipedia.org/wiki/Binary_number</a></p>
+							</dd>
+							<dt>see</dt>
+							<dd><p><a href="https://en.wikipedia.org/wiki/ISO/IEC_8859-1">https://en.wikipedia.org/wiki/ISO/IEC_8859-1</a></p>
+							</dd>
+						</dl>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="eci" class="tsd-anchor"></a>
@@ -127,29 +150,20 @@
 					<div class="tsd-signature tsd-kind-icon">ECI<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 7</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/af76a7b/src/common/QR.ts#L24">common/QR.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/6f5c7e4/src/common/QR.ts#L58">common/QR.ts:58</a></li>
 						</ul>
 					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="fnc1firstposition" class="tsd-anchor"></a>
-					<h3>FNC1<wbr>First<wbr>Position</h3>
-					<div class="tsd-signature tsd-kind-icon">FNC1<wbr>First<wbr>Position<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 5</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/af76a7b/src/common/QR.ts#L30">common/QR.ts:30</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="fnc1secondposition" class="tsd-anchor"></a>
-					<h3>FNC1<wbr>Second<wbr>Position</h3>
-					<div class="tsd-signature tsd-kind-icon">FNC1<wbr>Second<wbr>Position<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 9</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/af76a7b/src/common/QR.ts#L31">common/QR.ts:31</a></li>
-						</ul>
-					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>ECI: AIM ECI(Extended Channel Interpretation).</p>
+						</div>
+						<p>This mode does not need to be used, just enable ECI in <a href="../interfaces/creatoroptions.html">CreatorOptions</a>.</p>
+						<dl class="tsd-comment-tags">
+							<dt>see</dt>
+							<dd><p><a href="https://en.wikipedia.org/wiki/Extended_Channel_Interpretation">https://en.wikipedia.org/wiki/Extended_Channel_Interpretation</a></p>
+							</dd>
+						</dl>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="kanji" class="tsd-anchor"></a>
@@ -157,9 +171,22 @@
 					<div class="tsd-signature tsd-kind-icon">Kanji<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 8</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/af76a7b/src/common/QR.ts#L28">common/QR.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/6f5c7e4/src/common/QR.ts#L51">common/QR.ts:51</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Kanji</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>see</dt>
+							<dd><p><a href="https://en.wikipedia.org/wiki/Kanji">https://en.wikipedia.org/wiki/Kanji</a></p>
+							</dd>
+							<dt>see</dt>
+							<dd><p><a href="https://en.wikipedia.org/wiki/Shift_JIS">https://en.wikipedia.org/wiki/Shift_JIS</a></p>
+							</dd>
+						</dl>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="numeric" class="tsd-anchor"></a>
@@ -167,29 +194,14 @@
 					<div class="tsd-signature tsd-kind-icon">Numeric<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 1</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/af76a7b/src/common/QR.ts#L25">common/QR.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/6f5c7e4/src/common/QR.ts#L31">common/QR.ts:31</a></li>
 						</ul>
 					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="structuredappend" class="tsd-anchor"></a>
-					<h3>Structured<wbr>Append</h3>
-					<div class="tsd-signature tsd-kind-icon">Structured<wbr>Append<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 3</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/af76a7b/src/common/QR.ts#L29">common/QR.ts:29</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="terminator" class="tsd-anchor"></a>
-					<h3>Terminator</h3>
-					<div class="tsd-signature tsd-kind-icon">Terminator<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 0</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/af76a7b/src/common/QR.ts#L32">common/QR.ts:32</a></li>
-						</ul>
-					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Numeric only: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -224,41 +236,17 @@
 								<a href="qrmode.html#eci" class="tsd-kind-icon">ECI</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="qrmode.html#fnc1firstposition" class="tsd-kind-icon">FNC1<wbr>First<wbr>Position</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="qrmode.html#fnc1secondposition" class="tsd-kind-icon">FNC1<wbr>Second<wbr>Position</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
 								<a href="qrmode.html#kanji" class="tsd-kind-icon">Kanji</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
 								<a href="qrmode.html#numeric" class="tsd-kind-icon">Numeric</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="qrmode.html#structuredappend" class="tsd-kind-icon">Structured<wbr>Append</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="qrmode.html#terminator" class="tsd-kind-icon">Terminator</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-class">
-						<a href="../classes/alphanumericdata.html" class="tsd-kind-icon">Alphanumeric<wbr>Data</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/bytedata.html" class="tsd-kind-icon">Byte<wbr>Data</a>
-					</li>
-					<li class=" tsd-kind-class">
 						<a href="../classes/creator.html" class="tsd-kind-icon">Creator</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/kanjidata.html" class="tsd-kind-icon">Kanji<wbr>Data</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/numericdata.html" class="tsd-kind-icon">Numeric<wbr>Data</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="../classes/qrcontent.html" class="tsd-kind-icon">QRContent</a>
@@ -270,7 +258,13 @@
 						<a href="../interfaces/creatoroptions.html" class="tsd-kind-icon">Creator<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="../interfaces/qrcontentobj.html" class="tsd-kind-icon">QRContent<wbr>Obj</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="../interfaces/renderoptions.html" class="tsd-kind-icon">Render<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../modules.html#qrmatrix" class="tsd-kind-icon">QRMatrix</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="../modules.html#qrstyle" class="tsd-kind-icon">QRStyle</a>
@@ -286,14 +280,10 @@
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
 			</ul>
 		</div>
 	</div>

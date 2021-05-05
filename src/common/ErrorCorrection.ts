@@ -4,17 +4,27 @@ import * as GF from '../utils/galois_field';
 /**
  * Error Correction Level
  *
+ * QR codes use [Reed–Solomon error correction](https://en.wikipedia.org/wiki/Reed%E2%80%93Solomon_error_correction) over the [finite field](https://en.wikipedia.org/wiki/Finite_field).
+ * @see https://en.wikipedia.org/wiki/QR_code#Error_correction
  * @export
  * @enum {number}
  */
 export enum ErrorCorrectionLevel {
-    // 7%
+    /**
+     * Level L (Low), approx 7%
+     */
     L = 1,
-    // 15%
+    /**
+     * Level M (Medium), approx 15%
+     */
     M = 0,
-    // 25%
+    /**
+     * Level Q (Quartile), approx 25%
+     */
     Q = 3,
-    // 30%
+    /**
+     * Level H (High), approx 30%
+     */
     H = 2
 }
 

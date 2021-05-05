@@ -8,6 +8,10 @@ const N4: number = 10;
 
 /**
  * Mask Pattern
+ * 
+ * Masking is used to break up patterns in the data area that might confuse a scanner, such as large blank areas or misleading features that look like the locator marks.
+ * 
+ * @see https://en.wikipedia.org/wiki/File:QR_Code_Mask_Patterns.svg
  * @readonly
  * @enum {number}
  */

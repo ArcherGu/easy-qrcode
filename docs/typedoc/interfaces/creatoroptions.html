@@ -68,8 +68,15 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>QR Creator Options</p>
+						<p>QR Creator Options.</p>
 					</div>
+					<dl class="tsd-comment-tags">
+						<dt>export</dt>
+						<dd></dd>
+						<dt>interface</dt>
+						<dd><p>CreatorOptions</p>
+						</dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -104,9 +111,20 @@
 					<div class="tsd-signature tsd-kind-icon">enableECI<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/af76a7b/src/common/QR.ts#L40">common/QR.ts:40</a></li>
+							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/6f5c7e4/src/common/QR.ts#L89">common/QR.ts:89</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>whether to enable ECI.</p>
+						</div>
+						<p>ECI: AIM ECI(Extended Channel Interpretation).</p>
+						<dl class="tsd-comment-tags">
+							<dt>see</dt>
+							<dd><p><a href="https://en.wikipedia.org/wiki/Extended_Channel_Interpretation">https://en.wikipedia.org/wiki/Extended_Channel_Interpretation</a></p>
+							</dd>
+						</dl>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="errorcorrectionlevel" class="tsd-anchor"></a>
@@ -114,9 +132,20 @@
 					<div class="tsd-signature tsd-kind-icon">error<wbr>Correction<wbr>Level<span class="tsd-signature-symbol">:</span> <a href="../enums/errorcorrectionlevel.html" class="tsd-signature-type" data-tsd-kind="Enumeration">ErrorCorrectionLevel</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/af76a7b/src/common/QR.ts#L41">common/QR.ts:41</a></li>
+							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/6f5c7e4/src/common/QR.ts#L98">common/QR.ts:98</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>error correction level</p>
+						</div>
+						<p>If not specified, default error correction level is Level M (Medium, approx 15%).</p>
+						<dl class="tsd-comment-tags">
+							<dt>see</dt>
+							<dd><p><a href="https://en.wikipedia.org/wiki/QR_code#Error_correction">https://en.wikipedia.org/wiki/QR_code#Error_correction</a></p>
+							</dd>
+						</dl>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="maskpattern" class="tsd-anchor"></a>
@@ -124,9 +153,20 @@
 					<div class="tsd-signature tsd-kind-icon">mask<wbr>Pattern<span class="tsd-signature-symbol">:</span> <a href="../enums/maskpattern.html" class="tsd-signature-type" data-tsd-kind="Enumeration">MaskPattern</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/af76a7b/src/common/QR.ts#L42">common/QR.ts:42</a></li>
+							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/6f5c7e4/src/common/QR.ts#L107">common/QR.ts:107</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Mask Pattern</p>
+						</div>
+						<p>If not specified, the creator will select the mask pattern with the lowest penalty.</p>
+						<dl class="tsd-comment-tags">
+							<dt>see</dt>
+							<dd><p><a href="https://en.wikipedia.org/wiki/QR_code#Encoding">https://en.wikipedia.org/wiki/QR_code#Encoding</a></p>
+							</dd>
+						</dl>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="version" class="tsd-anchor"></a>
@@ -134,9 +174,20 @@
 					<div class="tsd-signature tsd-kind-icon">version<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/af76a7b/src/common/QR.ts#L39">common/QR.ts:39</a></li>
+							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/6f5c7e4/src/common/QR.ts#L80">common/QR.ts:80</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>the version for QR code.</p>
+						</div>
+						<p>If not specified, the creator selects the most appropriate version based on the size of the content.</p>
+						<dl class="tsd-comment-tags">
+							<dt>see</dt>
+							<dd><p><a href="https://www.qrcode.com/en/about/version.html">https://www.qrcode.com/en/about/version.html</a></p>
+							</dd>
+						</dl>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -160,19 +211,7 @@
 						<a href="../enums/qrmode.html" class="tsd-kind-icon">QRMode</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="../classes/alphanumericdata.html" class="tsd-kind-icon">Alphanumeric<wbr>Data</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/bytedata.html" class="tsd-kind-icon">Byte<wbr>Data</a>
-					</li>
-					<li class=" tsd-kind-class">
 						<a href="../classes/creator.html" class="tsd-kind-icon">Creator</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/kanjidata.html" class="tsd-kind-icon">Kanji<wbr>Data</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/numericdata.html" class="tsd-kind-icon">Numeric<wbr>Data</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="../classes/qrcontent.html" class="tsd-kind-icon">QRContent</a>
@@ -202,7 +241,13 @@
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface">
+						<a href="qrcontentobj.html" class="tsd-kind-icon">QRContent<wbr>Obj</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="renderoptions.html" class="tsd-kind-icon">Render<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../modules.html#qrmatrix" class="tsd-kind-icon">QRMatrix</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="../modules.html#qrstyle" class="tsd-kind-icon">QRStyle</a>
@@ -218,14 +263,10 @@
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
 			</ul>
 		</div>
 	</div>
