@@ -110,7 +110,10 @@
 
             <div class="form-item-label-top">
                 <label class="form-item-label">Error Correction Level: </label>
-                <div class="form-item-content demo-radio">
+                <div
+                    class="form-item-content demo-radio"
+                    style="margin-left: 80px;"
+                >
                     <label>
                         <input
                             v-model="errorCorrectionLevel"

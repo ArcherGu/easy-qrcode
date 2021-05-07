@@ -124,6 +124,12 @@ body {
     padding: 0 0 10px;
 }
 
+@media only screen and (max-width: 1070px) {
+    .form-item-label-top .form-item-content {
+        margin-left: 0px !important;
+    }
+}
+
 .form-item-content {
     line-height: 40px;
     position: relative;
@@ -220,58 +226,54 @@ body {
 .demo-radio label {
     font-size: 1rem;
     font-weight: 600;
-    margin-left: 5px
+    margin-left: 50px
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (max-width: 1070px) {
     .demo-radio label {
-        font-size: 1rem;
-        font-weight: 600;
-        margin-left: 50px
+        margin-left: 10px
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .demo-radio label {
+        margin-left: 5px
     }
 }
 
 .radio-type {
     width: 20px;
     height: 20px;
-    appearance: none;
     position: relative;
+    top: 5px;
     outline: none;
-    margin-top: 0px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
 }
 
 .radio-type:before {
     content: "";
-    width: 15px;
-    height: 15px;
+    width: 16px;
+    height: 16px;
     border: 2px solid #337ab7;
     display: inline-block;
     border-radius: 50%;
     vertical-align: middle;
     position: absolute;
-    top: 5px;
-}
-
-.radio-type:checked:before {
-    content: "";
-    width: 15px;
-    height: 15px;
-    border: 2px solid #337ab7;
-    display: inline-block;
-    border-radius: 50%;
-    vertical-align: middle;
 }
 
 .radio-type:checked:after {
     content: "";
-    width: 9px;
-    height: 9px;
+    width: 10px;
+    height: 10px;
     text-align: center;
     background: #337ab7;
     border-radius: 50%;
     display: block;
     position: absolute;
-    top: 10px;
+    top: 5px;
     left: 5px;
 }
 
