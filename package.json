@@ -14,13 +14,18 @@
     ],
     "scripts": {
         "build": "rimraf dist && rollup -c && terser dist/easy-qrcode.js -c -m --comments -o dist/easy-qrcode.min.js",
-        "doc": "typedoc --options ./typedoc.json",
+        "docs:build": "typedoc --options ./typedoc.json",
         "demo:init": "cd ./deploy/demo & yarn",
         "demo:dev": "cd ./deploy/demo & yarn serve",
-        "demo:build": "cd ./deploy/demo & yarn build"
+        "demo:build": "cd ./deploy/demo & yarn build",
+        "gh-pages": "gh-pages -fd ./deploy/dist",
+        "deploy:build": "yarn demo:build & yarn docs:build",
+        "deploy": "yarn deploy:build & yarn gh-pages"
     },
     "keywords": [
         "qrcode",
+        "qrcode-generator",
+        "qrcode-encoder",
         "2d code",
         "easy-qrcode"
     ],

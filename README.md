@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="200" src="./logo.png" alt="logo">
+    <img width="200" src="https://github.com/ArcherGu/easy-qrcode/blob/main/logo.png" alt="logo">
 </p>
 <br/>
 
