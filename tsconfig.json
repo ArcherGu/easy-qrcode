@@ -1,7 +1,5 @@
 {
     "compilerOptions": {
-        "rootDir": "src",
-        "baseUrl": ".",
         "outDir": "./dist",
         "sourceMap": false,
         "target": "ESNext",
@@ -18,14 +16,12 @@
         "removeComments": false,
         "declaration": true,
         "declarationMap": true,
+        "resolveJsonModule": true,
         "declarationDir": "./dist/types",
         "lib": [
             "ESNext",
             "DOM"
-        ],
-        "types": [
-            "jest"
-        ],
+        ]
     },
     "include": [
         "src/**/*.ts",
@@ -34,6 +30,7 @@
         "node_modules",
         "dist",
         "__tests__",
-        "**/*.spec.ts"
+        "**/*.spec.ts",
+        "deploy"
     ]
 }

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>QRMode | easy-qrcode - v0.1.0</title>
+	<title>MaskPattern | easy-qrcode - v0.1.0</title>
 	<meta name="description" content="Documentation for easy-qrcode - v0.1.0">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,10 +55,10 @@
 					<a href="../modules.html">easy-qrcode - v0.1.0</a>
 				</li>
 				<li>
-					<a href="qrmode.html">QRMode</a>
+					<a href="maskpattern.html">MaskPattern</a>
 				</li>
 			</ul>
-			<h1>Enumeration QRMode</h1>
+			<h1>Enumeration MaskPattern</h1>
 		</div>
 	</div>
 </header>
@@ -68,16 +68,14 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>QR Mode (datatype)</p>
+						<p>Mask Pattern</p>
 					</div>
-					<p>The amount of data that can be stored in the QR code symbol depends on the datatype (mode, or input character set).</p>
+					<p>Masking is used to break up patterns in the data area that might confuse a scanner, such as large blank areas or misleading features that look like the locator marks.</p>
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
-						<dd><p><a href="https://en.wikipedia.org/wiki/QR_code#Storage">https://en.wikipedia.org/wiki/QR_code#Storage</a></p>
+						<dd><p><a href="https://en.wikipedia.org/wiki/File:QR_Code_Mask_Patterns.svg">https://en.wikipedia.org/wiki/File:QR_Code_Mask_Patterns.svg</a></p>
 						</dd>
 						<dt>readonly</dt>
-						<dd></dd>
-						<dt>export</dt>
 						<dd></dd>
 					</dl>
 				</div>
@@ -89,11 +87,14 @@
 						<section class="tsd-index-section ">
 							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="qrmode.html#alphanumeric" class="tsd-kind-icon">Alphanumeric</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="qrmode.html#byte" class="tsd-kind-icon">Byte</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="qrmode.html#eci" class="tsd-kind-icon">ECI</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="qrmode.html#kanji" class="tsd-kind-icon">Kanji</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="qrmode.html#numeric" class="tsd-kind-icon">Numeric</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="maskpattern.html#pattern000" class="tsd-kind-icon">PATTERN000</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="maskpattern.html#pattern001" class="tsd-kind-icon">PATTERN001</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="maskpattern.html#pattern010" class="tsd-kind-icon">PATTERN010</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="maskpattern.html#pattern011" class="tsd-kind-icon">PATTERN011</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="maskpattern.html#pattern100" class="tsd-kind-icon">PATTERN100</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="maskpattern.html#pattern101" class="tsd-kind-icon">PATTERN101</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="maskpattern.html#pattern110" class="tsd-kind-icon">PATTERN110</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="maskpattern.html#pattern111" class="tsd-kind-icon">PATTERN111</a></li>
 							</ul>
 						</section>
 					</div>
@@ -102,106 +103,84 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Enumeration members</h2>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="alphanumeric" class="tsd-anchor"></a>
-					<h3>Alphanumeric</h3>
-					<div class="tsd-signature tsd-kind-icon">Alphanumeric<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 2</span></div>
+					<a name="pattern000" class="tsd-anchor"></a>
+					<h3>PATTERN000</h3>
+					<div class="tsd-signature tsd-kind-icon">PATTERN000<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/41a5072/src/common/QR.ts#L37">common/QR.ts:37</a></li>
+							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/41d413b/src/common/Mask.ts#L19">common/Mask.ts:19</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>0–9, A–Z (upper-case only), space, $, %, *, +, -, ., /, :</p>
-						</div>
-						<dl class="tsd-comment-tags">
-							<dt>see</dt>
-							<dd><p><a href="https://en.wikipedia.org/wiki/Alphanumeric">https://en.wikipedia.org/wiki/Alphanumeric</a></p>
-							</dd>
-						</dl>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="byte" class="tsd-anchor"></a>
-					<h3>Byte</h3>
-					<div class="tsd-signature tsd-kind-icon">Byte<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 4</span></div>
+					<a name="pattern001" class="tsd-anchor"></a>
+					<h3>PATTERN001</h3>
+					<div class="tsd-signature tsd-kind-icon">PATTERN001<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 1</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/41a5072/src/common/QR.ts#L44">common/QR.ts:44</a></li>
+							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/41d413b/src/common/Mask.ts#L20">common/Mask.ts:20</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Binary/byte</p>
-						</div>
-						<dl class="tsd-comment-tags">
-							<dt>see</dt>
-							<dd><p><a href="https://en.wikipedia.org/wiki/Binary_number">https://en.wikipedia.org/wiki/Binary_number</a></p>
-							</dd>
-							<dt>see</dt>
-							<dd><p><a href="https://en.wikipedia.org/wiki/ISO/IEC_8859-1">https://en.wikipedia.org/wiki/ISO/IEC_8859-1</a></p>
-							</dd>
-						</dl>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="eci" class="tsd-anchor"></a>
-					<h3>ECI</h3>
-					<div class="tsd-signature tsd-kind-icon">ECI<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 7</span></div>
+					<a name="pattern010" class="tsd-anchor"></a>
+					<h3>PATTERN010</h3>
+					<div class="tsd-signature tsd-kind-icon">PATTERN010<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 2</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/41a5072/src/common/QR.ts#L58">common/QR.ts:58</a></li>
+							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/41d413b/src/common/Mask.ts#L21">common/Mask.ts:21</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>ECI: AIM ECI(Extended Channel Interpretation).</p>
-						</div>
-						<p>This mode does not need to be used, just enable ECI in <a href="../interfaces/creatoroptions.html">CreatorOptions</a>.</p>
-						<dl class="tsd-comment-tags">
-							<dt>see</dt>
-							<dd><p><a href="https://en.wikipedia.org/wiki/Extended_Channel_Interpretation">https://en.wikipedia.org/wiki/Extended_Channel_Interpretation</a></p>
-							</dd>
-						</dl>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="kanji" class="tsd-anchor"></a>
-					<h3>Kanji</h3>
-					<div class="tsd-signature tsd-kind-icon">Kanji<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 8</span></div>
+					<a name="pattern011" class="tsd-anchor"></a>
+					<h3>PATTERN011</h3>
+					<div class="tsd-signature tsd-kind-icon">PATTERN011<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 3</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/41a5072/src/common/QR.ts#L51">common/QR.ts:51</a></li>
+							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/41d413b/src/common/Mask.ts#L22">common/Mask.ts:22</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Kanji</p>
-						</div>
-						<dl class="tsd-comment-tags">
-							<dt>see</dt>
-							<dd><p><a href="https://en.wikipedia.org/wiki/Kanji">https://en.wikipedia.org/wiki/Kanji</a></p>
-							</dd>
-							<dt>see</dt>
-							<dd><p><a href="https://en.wikipedia.org/wiki/Shift_JIS">https://en.wikipedia.org/wiki/Shift_JIS</a></p>
-							</dd>
-						</dl>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="numeric" class="tsd-anchor"></a>
-					<h3>Numeric</h3>
-					<div class="tsd-signature tsd-kind-icon">Numeric<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 1</span></div>
+					<a name="pattern100" class="tsd-anchor"></a>
+					<h3>PATTERN100</h3>
+					<div class="tsd-signature tsd-kind-icon">PATTERN100<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 4</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/41a5072/src/common/QR.ts#L31">common/QR.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/41d413b/src/common/Mask.ts#L23">common/Mask.ts:23</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Numeric only: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9</p>
-						</div>
-					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="pattern101" class="tsd-anchor"></a>
+					<h3>PATTERN101</h3>
+					<div class="tsd-signature tsd-kind-icon">PATTERN101<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 5</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/41d413b/src/common/Mask.ts#L24">common/Mask.ts:24</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="pattern110" class="tsd-anchor"></a>
+					<h3>PATTERN110</h3>
+					<div class="tsd-signature tsd-kind-icon">PATTERN110<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 6</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/41d413b/src/common/Mask.ts#L25">common/Mask.ts:25</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="pattern111" class="tsd-anchor"></a>
+					<h3>PATTERN111</h3>
+					<div class="tsd-signature tsd-kind-icon">PATTERN111<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 7</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/41d413b/src/common/Mask.ts#L26">common/Mask.ts:26</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -218,33 +197,42 @@
 					<li class=" tsd-kind-enum">
 						<a href="errorcorrectionlevel.html" class="tsd-kind-icon">Error<wbr>Correction<wbr>Level</a>
 					</li>
-					<li class=" tsd-kind-enum">
-						<a href="maskpattern.html" class="tsd-kind-icon">Mask<wbr>Pattern</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-enum">
-						<a href="qrmode.html" class="tsd-kind-icon">QRMode</a>
+						<a href="maskpattern.html" class="tsd-kind-icon">Mask<wbr>Pattern</a>
 						<ul>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="qrmode.html#alphanumeric" class="tsd-kind-icon">Alphanumeric</a>
+								<a href="maskpattern.html#pattern000" class="tsd-kind-icon">PATTERN000</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="qrmode.html#byte" class="tsd-kind-icon">Byte</a>
+								<a href="maskpattern.html#pattern001" class="tsd-kind-icon">PATTERN001</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="qrmode.html#eci" class="tsd-kind-icon">ECI</a>
+								<a href="maskpattern.html#pattern010" class="tsd-kind-icon">PATTERN010</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="qrmode.html#kanji" class="tsd-kind-icon">Kanji</a>
+								<a href="maskpattern.html#pattern011" class="tsd-kind-icon">PATTERN011</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="qrmode.html#numeric" class="tsd-kind-icon">Numeric</a>
+								<a href="maskpattern.html#pattern100" class="tsd-kind-icon">PATTERN100</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="maskpattern.html#pattern101" class="tsd-kind-icon">PATTERN101</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="maskpattern.html#pattern110" class="tsd-kind-icon">PATTERN110</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="maskpattern.html#pattern111" class="tsd-kind-icon">PATTERN111</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-enum">
+						<a href="qrmode.html" class="tsd-kind-icon">QRMode</a>
+					</li>
 					<li class=" tsd-kind-class">
 						<a href="../classes/creator.html" class="tsd-kind-icon">Creator</a>
 					</li>

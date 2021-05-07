@@ -1,12 +1,13 @@
 import { QRMode } from "../../common/QR";
 import { BitBuffer } from "../BitBuffer";
 import { BaseData } from "./BaseData";
+import { toSJIS } from "../../utils/converter";
 
 export class KanjiData extends BaseData {
     constructor(data: string) {
         super(QRMode.Numeric, data);
 
-        this.bytes = [];
+        this.bytes = toSJIS(data);
     }
 
     /**

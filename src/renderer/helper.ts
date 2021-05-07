@@ -1,4 +1,4 @@
-import { QRMatrix } from "src/common/QR";
+import { QRMatrix } from "../common/QR";
 import { Voidable } from "../utils/types_tool";
 
 export function drawCorner(ctx: CanvasRenderingContext2D, cornerX: number, cornerY: number, x: number, y: number, r: number) {

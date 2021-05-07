@@ -14,7 +14,10 @@
     ],
     "scripts": {
         "build": "rimraf dist && rollup -c && terser dist/easy-qrcode.js -c -m --comments -o dist/easy-qrcode.min.js",
-        "doc": "typedoc --options ./typedoc.json"
+        "doc": "typedoc --options ./typedoc.json",
+        "demo:init": "cd ./deploy/demo & yarn",
+        "demo:dev": "cd ./deploy/demo & yarn serve",
+        "demo:build": "cd ./deploy/demo & yarn build"
     },
     "keywords": [
         "qrcode",
@@ -33,6 +36,7 @@
         "@babel/preset-env": "^7.13.15",
         "@rollup/plugin-babel": "^5.3.0",
         "@rollup/plugin-typescript": "^8.2.1",
+        "gh-pages": "^3.1.0",
         "prettier": "^2.2.1",
         "rimraf": "^3.0.2",
         "rollup": "^2.45.2",

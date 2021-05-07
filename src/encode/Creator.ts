@@ -230,11 +230,12 @@ export class Creator {
             } else if (TEST_ALPHANUMERIC.test(qrContent)) {
                 data = new AlphanumericData(qrContent);
             }
-
-            try {
-                data = new KanjiData(qrContent);
-            } catch (error) {
-                data = new ByteData(qrContent);
+            else {
+                try {
+                    data = new KanjiData(qrContent);
+                } catch (error) {
+                    data = new ByteData(qrContent);
+                }
             }
         }
         else if (qrContent.hasOwnProperty('data') && qrContent.hasOwnProperty('mode')) {

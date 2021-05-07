@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>QRContentObj | easy-qrcode - v0.1.0</title>
+	<title>QRContent | easy-qrcode - v0.1.0</title>
 	<meta name="description" content="Documentation for easy-qrcode - v0.1.0">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,10 +55,10 @@
 					<a href="../modules.html">easy-qrcode - v0.1.0</a>
 				</li>
 				<li>
-					<a href="qrcontentobj.html">QRContentObj</a>
+					<a href="qrcontent.html">QRContent</a>
 				</li>
 			</ul>
-			<h1>Interface QRContentObj</h1>
+			<h1>Class QRContent</h1>
 		</div>
 	</div>
 </header>
@@ -68,14 +68,11 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Set the content object and add it to the creator.</p>
+						<p>Create an instance of the content and add it to the creator.</p>
 					</div>
 					<dl class="tsd-comment-tags">
 						<dt>export</dt>
 						<dd></dd>
-						<dt>interface</dt>
-						<dd><p>QRContentObj</p>
-						</dd>
 					</dl>
 				</div>
 			</section>
@@ -83,7 +80,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">QRContentObj</span>
+						<span class="target">QRContent</span>
 					</li>
 				</ul>
 			</section>
@@ -92,36 +89,72 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Properties</h3>
+							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="qrcontentobj.html#content" class="tsd-kind-icon">content</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="qrcontentobj.html#mode" class="tsd-kind-icon">mode</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="qrcontent.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="qrcontent.html#getqrdata" class="tsd-kind-icon">getQRData</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="content" class="tsd-anchor"></a>
-					<h3>content</h3>
-					<div class="tsd-signature tsd-kind-icon">content<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/41a5072/src/encode/QRContent.ts#L11">encode/QRContent.ts:11</a></li>
-						</ul>
-					</aside>
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new QRContent<span class="tsd-signature-symbol">(</span>content<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, mode<span class="tsd-signature-symbol">: </span><a href="../enums/qrmode.html" class="tsd-signature-type" data-tsd-kind="Enumeration">QRMode</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="qrcontent.html" class="tsd-signature-type" data-tsd-kind="Class">QRContent</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/41d413b/src/encode/QRContent.ts#L22">encode/QRContent.ts:22</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>content: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>mode: <a href="../enums/qrmode.html" class="tsd-signature-type" data-tsd-kind="Enumeration">QRMode</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="qrcontent.html" class="tsd-signature-type" data-tsd-kind="Class">QRContent</a></h4>
+						</li>
+					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="mode" class="tsd-anchor"></a>
-					<h3>mode</h3>
-					<div class="tsd-signature tsd-kind-icon">mode<span class="tsd-signature-symbol">:</span> <a href="../enums/qrmode.html" class="tsd-signature-type" data-tsd-kind="Enumeration">QRMode</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/41a5072/src/encode/QRContent.ts#L12">encode/QRContent.ts:12</a></li>
-						</ul>
-					</aside>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getqrdata" class="tsd-anchor"></a>
+					<h3>getQRData</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">getQRData<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">BaseData</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/41d413b/src/encode/QRContent.ts#L50">encode/QRContent.ts:50</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the QR data for this content&#39;s QR mode.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">BaseData</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -145,34 +178,34 @@
 						<a href="../enums/qrmode.html" class="tsd-kind-icon">QRMode</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="../classes/creator.html" class="tsd-kind-icon">Creator</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/qrcontent.html" class="tsd-kind-icon">QRContent</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/renderer.html" class="tsd-kind-icon">Renderer</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="creatoroptions.html" class="tsd-kind-icon">Creator<wbr>Options</a>
+						<a href="creator.html" class="tsd-kind-icon">Creator</a>
 					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface">
-						<a href="qrcontentobj.html" class="tsd-kind-icon">QRContent<wbr>Obj</a>
+					<li class="current tsd-kind-class">
+						<a href="qrcontent.html" class="tsd-kind-icon">QRContent</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="qrcontentobj.html#content" class="tsd-kind-icon">content</a>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="qrcontent.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="qrcontentobj.html#mode" class="tsd-kind-icon">mode</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="qrcontent.html#getqrdata" class="tsd-kind-icon">getQRData</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-class">
+						<a href="renderer.html" class="tsd-kind-icon">Renderer</a>
+					</li>
 					<li class=" tsd-kind-interface">
-						<a href="renderoptions.html" class="tsd-kind-icon">Render<wbr>Options</a>
+						<a href="../interfaces/creatoroptions.html" class="tsd-kind-icon">Creator<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/qrcontentobj.html" class="tsd-kind-icon">QRContent<wbr>Obj</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/renderoptions.html" class="tsd-kind-icon">Render<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="../modules.html#qrmatrix" class="tsd-kind-icon">QRMatrix</a>

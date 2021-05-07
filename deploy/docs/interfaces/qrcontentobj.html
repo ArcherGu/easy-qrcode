@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>RenderOptions | easy-qrcode - v0.1.0</title>
+	<title>QRContentObj | easy-qrcode - v0.1.0</title>
 	<meta name="description" content="Documentation for easy-qrcode - v0.1.0">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,10 +55,10 @@
 					<a href="../modules.html">easy-qrcode - v0.1.0</a>
 				</li>
 				<li>
-					<a href="renderoptions.html">RenderOptions</a>
+					<a href="qrcontentobj.html">QRContentObj</a>
 				</li>
 			</ul>
-			<h1>Interface RenderOptions</h1>
+			<h1>Interface QRContentObj</h1>
 		</div>
 	</div>
 </header>
@@ -68,13 +68,13 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The options for renderer</p>
+						<p>Set the content object and add it to the creator.</p>
 					</div>
 					<dl class="tsd-comment-tags">
 						<dt>export</dt>
 						<dd></dd>
 						<dt>interface</dt>
-						<dd><p>RenderOptions</p>
+						<dd><p>QRContentObj</p>
 						</dd>
 					</dl>
 				</div>
@@ -83,7 +83,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">RenderOptions</span>
+						<span class="target">QRContentObj</span>
 					</li>
 				</ul>
 			</section>
@@ -94,11 +94,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="renderoptions.html#gridsize" class="tsd-kind-icon">grid<wbr>Size</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="renderoptions.html#resize" class="tsd-kind-icon">resize</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="renderoptions.html#size" class="tsd-kind-icon">size</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="renderoptions.html#style" class="tsd-kind-icon">style</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="renderoptions.html#stylevalue" class="tsd-kind-icon">style<wbr>Value</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="qrcontentobj.html#content" class="tsd-kind-icon">content</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="qrcontentobj.html#mode" class="tsd-kind-icon">mode</a></li>
 							</ul>
 						</section>
 					</div>
@@ -107,79 +104,24 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="gridsize" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> grid<wbr>Size</h3>
-					<div class="tsd-signature tsd-kind-icon">grid<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="content" class="tsd-anchor"></a>
+					<h3>content</h3>
+					<div class="tsd-signature tsd-kind-icon">content<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/41a5072/src/renderer/Renderer.ts#L31">renderer/Renderer.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/41d413b/src/encode/QRContent.ts#L11">encode/QRContent.ts:11</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>QR code grid size, the pixel size occupied by the one grid.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="resize" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> resize</h3>
-					<div class="tsd-signature tsd-kind-icon">resize<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<a name="mode" class="tsd-anchor"></a>
+					<h3>mode</h3>
+					<div class="tsd-signature tsd-kind-icon">mode<span class="tsd-signature-symbol">:</span> <a href="../enums/qrmode.html" class="tsd-signature-type" data-tsd-kind="Enumeration">QRMode</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/41a5072/src/renderer/Renderer.ts#L37">renderer/Renderer.ts:37</a></li>
+							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/41d413b/src/encode/QRContent.ts#L12">encode/QRContent.ts:12</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Whether resize canvas.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="size" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> size</h3>
-					<div class="tsd-signature tsd-kind-icon">size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/41a5072/src/renderer/Renderer.ts#L25">renderer/Renderer.ts:25</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>QR code image size, if <a href="renderoptions.html#gridsize">gridSize</a> is specified, size will be ignored.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="style" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> style</h3>
-					<div class="tsd-signature tsd-kind-icon">style<span class="tsd-signature-symbol">:</span> <a href="../modules.html#qrstyle" class="tsd-signature-type" data-tsd-kind="Type alias">QRStyle</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/41a5072/src/renderer/Renderer.ts#L43">renderer/Renderer.ts:43</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Style for the QR code image.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="stylevalue" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> style<wbr>Value</h3>
-					<div class="tsd-signature tsd-kind-icon">style<wbr>Value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/ArcherGu/easy-qrcode/blob/41a5072/src/renderer/Renderer.ts#L49">renderer/Renderer.ts:49</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The value to which the style has changed.</p>
-						</div>
-					</div>
 				</section>
 			</section>
 		</div>
@@ -214,33 +156,24 @@
 					<li class=" tsd-kind-interface">
 						<a href="creatoroptions.html" class="tsd-kind-icon">Creator<wbr>Options</a>
 					</li>
-					<li class=" tsd-kind-interface">
-						<a href="qrcontentobj.html" class="tsd-kind-icon">QRContent<wbr>Obj</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="renderoptions.html" class="tsd-kind-icon">Render<wbr>Options</a>
+						<a href="qrcontentobj.html" class="tsd-kind-icon">QRContent<wbr>Obj</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="renderoptions.html#gridsize" class="tsd-kind-icon">grid<wbr>Size</a>
+								<a href="qrcontentobj.html#content" class="tsd-kind-icon">content</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="renderoptions.html#resize" class="tsd-kind-icon">resize</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="renderoptions.html#size" class="tsd-kind-icon">size</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="renderoptions.html#style" class="tsd-kind-icon">style</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="renderoptions.html#stylevalue" class="tsd-kind-icon">style<wbr>Value</a>
+								<a href="qrcontentobj.html#mode" class="tsd-kind-icon">mode</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface">
+						<a href="renderoptions.html" class="tsd-kind-icon">Render<wbr>Options</a>
+					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="../modules.html#qrmatrix" class="tsd-kind-icon">QRMatrix</a>
 					</li>

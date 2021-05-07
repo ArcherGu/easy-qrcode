@@ -7,6 +7,8 @@
 
 A easy qrcode package written by TypeScript. This package can generate QR codes manually or automatically based on content. Thank you for using it. 😊
 
+### 🎁[Demo](https://archergu.github.io/easy-qrcode)
+
 ## 1. Quick start
 
 ### Install
@@ -105,7 +107,7 @@ document.body.append(canvas);
 
 ## 3. Documentation
 
-TODO
+You can find documentation [here](https://archergu.github.io/easy-qrcode/docs).
 
 ## 4. Why
 
