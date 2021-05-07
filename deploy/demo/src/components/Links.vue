@@ -6,7 +6,7 @@
             class="links-button button--large button--secondary button--github"
         >View on GitHub</a>
         <a
-            href="/docs"
+            href="/easy-qrcode/docs"
             class="links-button button--large"
         >Documentation</a>
     </div>
