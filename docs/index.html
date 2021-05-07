@@ -1,0 +1,258 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>easy-qrcode - v0.1.0</title>
+	<meta name="description" content="Documentation for easy-qrcode - v0.1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">easy-qrcode - v0.1.0</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>easy-qrcode - v0.1.0</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<p align="center">
+					<img width="200" src="https://github.com/ArcherGu/easy-qrcode/blob/main/logo.png" alt="logo">
+				</p>
+				<br/>
+				<p align="center">
+					<a href="https://npmjs.com/package/easy-qrcode">
+						<img src="https://img.shields.io/npm/v/easy-qrcode.svg?style=flat-square" alt="npm package">
+					</a>
+					<a href="https://github.com/ArcherGu/easy-qrcode">
+						<img src="https://img.shields.io/github/checks-status/archergu/easy-qrcode/main?style=flat-square" alt="checks">
+					</a>
+					<a href="https://github.com/ArcherGu/easy-qrcode/blob/main/LICENSE">
+						<img src="https://img.shields.io/github/license/archergu/easy-qrcode?style=flat-square" alt="license">
+					</a>
+				</p>
+				<a href="#easy-qrcode-📱" id="easy-qrcode-📱" style="color: inherit; text-decoration: none;">
+					<h1>Easy QRcode 📱</h1>
+				</a>
+				<p>An Easy QRcode package written by TypeScript. This package can generate QR codes manually or automatically based on content. Thank you for using it. 😊</p>
+				<a href="#🚀demo" id="🚀demo" style="color: inherit; text-decoration: none;">
+					<h3>🚀<a href="https://archergu.github.io/easy-qrcode">Demo</a></h3>
+				</a>
+				<a href="#1-quick-start" id="1-quick-start" style="color: inherit; text-decoration: none;">
+					<h2>1. Quick start</h2>
+				</a>
+				<a href="#install" id="install" style="color: inherit; text-decoration: none;">
+					<h3>Install</h3>
+				</a>
+				<a href="#install-with-npm-or-yarn" id="install-with-npm-or-yarn" style="color: inherit; text-decoration: none;">
+					<h4>Install with NPM or Yarn</h4>
+				</a>
+				<pre><code class="language-bash"><span style="color: #008000"># npm</span>
+<span style="color: #000000">npm install --save easy-qrcode</span>
+<span style="color: #008000"># yarn</span>
+<span style="color: #000000">yarn add --save easy-qrcode</span>
+</code></pre>
+				<a href="#or-link-to-the-source-code-directly" id="or-link-to-the-source-code-directly" style="color: inherit; text-decoration: none;">
+					<h4>Or link to the source code directly</h4>
+				</a>
+				<pre><code class="language-html"><span style="color: #800000">&lt;script</span><span style="color: #000000FF"> </span><span style="color: #FF0000">src</span><span style="color: #000000FF">=</span><span style="color: #0000FF">&quot;dist/easy-qrcode.min.js&quot;</span><span style="color: #800000">&gt;&lt;/script&gt;</span>
+</code></pre>
+				<p>Name <code>EQ</code> is ready to use and no need to import.</p>
+				<a href="#or-cdn" id="or-cdn" style="color: inherit; text-decoration: none;">
+					<h4>Or CDN</h4>
+				</a>
+				<pre><code class="language-html"><span style="color: #800000">&lt;script</span><span style="color: #000000FF"> </span><span style="color: #FF0000">src</span><span style="color: #000000FF">=</span><span style="color: #0000FF">&quot;https://unpkg.com/easy-qrcode/dist/easy-qrcode.min.js&quot;</span><span style="color: #800000">&gt;&lt;/script&gt;</span>
+</code></pre>
+				<p>Name <code>EQ</code> is ready to use and no need to import.</p>
+				<a href="#2-how-to-use" id="2-how-to-use" style="color: inherit; text-decoration: none;">
+					<h2>2. How to use</h2>
+				</a>
+				<a href="#create" id="create" style="color: inherit; text-decoration: none;">
+					<h3>Create</h3>
+				</a>
+				<p><code>Creator</code> class is used to generate a boolean matrix of QR code, which is a two-dimensional matrix that represents rows and columns.
+				You can use some options to initialize this creator. These options are optional.</p>
+				<pre><code class="language-ts"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Creator</span><span style="color: #000000">, </span><span style="color: #001080">ErrorCorrectionLevel</span><span style="color: #000000">, </span><span style="color: #001080">MaskPattern</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;easy-qrcode&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">qrCreator</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Creator</span><span style="color: #000000">();</span>
+
+<span style="color: #008000">// with options</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">qrCreator</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Creator</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">version:</span><span style="color: #000000"> </span><span style="color: #098658">4</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">enableECI:</span><span style="color: #000000"> </span><span style="color: #0000FF">false</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">errorCorrectionLevel:</span><span style="color: #000000"> </span><span style="color: #001080">ErrorCorrectionLevel</span><span style="color: #000000">.</span><span style="color: #0070C1">M</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">maskPattern:</span><span style="color: #000000"> </span><span style="color: #001080">MaskPattern</span><span style="color: #000000">.</span><span style="color: #0070C1">PATTERN000</span><span style="color: #000000">,</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<p>You can add content that will need to be written to the QR code to the creator and then generate the matrix.</p>
+				<pre><code class="language-ts"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">QRContent</span><span style="color: #000000">, </span><span style="color: #001080">QRMode</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;easy-qrcode&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #008000">// Add content directly</span>
+<span style="color: #001080">qrCreator</span><span style="color: #000000">.</span><span style="color: #795E26">add</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;123&#039;</span><span style="color: #000000">);</span>
+
+<span style="color: #008000">// Add QRContent</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">myContent</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">QRContent</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;123&#039;</span><span style="color: #000000">, </span><span style="color: #001080">QRMode</span><span style="color: #000000">.</span><span style="color: #001080">Byte</span><span style="color: #000000">);</span>
+<span style="color: #001080">qrCreator</span><span style="color: #000000">.</span><span style="color: #795E26">add</span><span style="color: #000000">(</span><span style="color: #001080">myContent</span><span style="color: #000000">);</span>
+
+<span style="color: #008000">// Add content object</span>
+<span style="color: #001080">qrCreator</span><span style="color: #000000">.</span><span style="color: #795E26">add</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">content:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;123&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">mode:</span><span style="color: #000000"> </span><span style="color: #001080">QRMode</span><span style="color: #000000">.</span><span style="color: #001080">Numeric</span><span style="color: #000000">,</span>
+<span style="color: #000000">});</span>
+
+<span style="color: #008000">// create matrix</span>
+<span style="color: #001080">qrCreator</span><span style="color: #000000">.</span><span style="color: #795E26">create</span><span style="color: #000000">();</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">matrix</span><span style="color: #000000"> = </span><span style="color: #001080">qrCreator</span><span style="color: #000000">.</span><span style="color: #795E26">getMatrix</span><span style="color: #000000">();</span>
+</code></pre>
+				<p>You can use this matrix to render QR code or to generate image and other operations.</p>
+				<a href="#render" id="render" style="color: inherit; text-decoration: none;">
+					<h3>Render</h3>
+				</a>
+				<p>This package provides a basic renderer now that renders QR code onto canvas.
+				You can provide your own renderer for a more free experience.</p>
+				<pre><code class="language-ts"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Renderer</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;easy-qrcode&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">qrRenderer</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Renderer</span><span style="color: #000000">();</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">matrix</span><span style="color: #000000"> = </span><span style="color: #001080">qrCreator</span><span style="color: #000000">.</span><span style="color: #795E26">getMatrix</span><span style="color: #000000">();</span>
+
+<span style="color: #008000">// An existing canvas</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">canvas</span><span style="color: #000000"> = </span><span style="color: #001080">document</span><span style="color: #000000">.</span><span style="color: #795E26">getElementById</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;qr-canvas&#039;</span><span style="color: #000000">);</span>
+<span style="color: #001080">qrRenderer</span><span style="color: #000000">.</span><span style="color: #795E26">drawCanvas</span><span style="color: #000000">(</span><span style="color: #001080">matrix</span><span style="color: #000000">, </span><span style="color: #001080">canvas</span><span style="color: #000000">);</span>
+
+<span style="color: #008000">// create a new canvas</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">canvas</span><span style="color: #000000"> = </span><span style="color: #001080">qrRenderer</span><span style="color: #000000">.</span><span style="color: #795E26">drawCanvas</span><span style="color: #000000">(</span><span style="color: #001080">matrix</span><span style="color: #000000">);</span>
+<span style="color: #001080">document</span><span style="color: #000000">.</span><span style="color: #001080">body</span><span style="color: #000000">.</span><span style="color: #795E26">append</span><span style="color: #000000">(</span><span style="color: #001080">canvas</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#3-documentation" id="3-documentation" style="color: inherit; text-decoration: none;">
+					<h2>3. Documentation</h2>
+				</a>
+				<p>You can find documentation <a href="https://archergu.github.io/easy-qrcode/docs">here</a>.</p>
+				<a href="#4-why" id="4-why" style="color: inherit; text-decoration: none;">
+					<h2>4. Why</h2>
+				</a>
+				<p>The most direct way to understand a standard or algorithm is to practice it. I was learning some details about QR code, and when I read some documentation I decided to implement a package.</p>
+				<p>In fact, this package was not created out of thin air. During the creation process I referred to some other developer projects, and I am very grateful for the ideas they provide</p>
+				<ul>
+					<li><a href="https://github.com/kazuhikoarase/qrcode-generator">kazuhikoarase/qrcode-generator</a></li>
+					<li><a href="https://github.com/soldair/node-qrcode">soldair/node-qrcode</a></li>
+					<li><a href="https://github.com/nuintun/qrcode">nuintun/qrcode</a></li>
+					<li><a href="https://github.com/gera2ld/qrcanvas">gera2ld/qrcanvas</a></li>
+				</ul>
+				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+					<h2>License</h2>
+				</a>
+				<p>The code in this project is licensed under <a href="https://github.com/ArcherGu/easy-qrcode/blob/main/LICENSE">MIT license</a>.</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="enums/errorcorrectionlevel.html" class="tsd-kind-icon">Error<wbr>Correction<wbr>Level</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/maskpattern.html" class="tsd-kind-icon">Mask<wbr>Pattern</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/qrmode.html" class="tsd-kind-icon">QRMode</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/creator.html" class="tsd-kind-icon">Creator</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/qrcontent.html" class="tsd-kind-icon">QRContent</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/renderer.html" class="tsd-kind-icon">Renderer</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/creatoroptions.html" class="tsd-kind-icon">Creator<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/qrcontentobj.html" class="tsd-kind-icon">QRContent<wbr>Obj</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/renderoptions.html" class="tsd-kind-icon">Render<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#qrmatrix" class="tsd-kind-icon">QRMatrix</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#qrstyle" class="tsd-kind-icon">QRStyle</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
