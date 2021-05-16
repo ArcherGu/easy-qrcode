@@ -10,7 +10,11 @@ import {
     RenderOptions,
     Renderer,
 } from 'easy-qrcode';
+import Slider, { createSliderWithTooltip } from "rc-slider";
+import 'rc-slider/assets/index.css';
 import "./index.css";
+
+const SliderWithTooltip = createSliderWithTooltip(Slider);
 
 const debounce = (func: Function, wait: number, immediate: boolean = false) => {
     let timeout: any;
@@ -137,8 +141,14 @@ const Demo = () => {
                         className="form-item-content demo-slider"
                         style={{ marginLeft: '80px' }}
                     >
-
-
+                        <SliderWithTooltip
+                            value={size}
+                            min={100}
+                            max={500}
+                            step={1}
+                            onChange={v => setSize(v)}
+                            style={{ marginTop: "13px" }}
+                        />
                     </div>
                 </div>
 
@@ -176,6 +186,14 @@ const Demo = () => {
                             className="form-item-content demo-slider"
                             style={{ marginLeft: '80px' }}
                         >
+                            <SliderWithTooltip
+                                value={styleValue}
+                                min={0}
+                                max={1}
+                                step={0.1}
+                                onChange={v => setStyleValue(v)}
+                                style={{ marginTop: "13px" }}
+                            />
                         </div>
                     </div>) :
                     null

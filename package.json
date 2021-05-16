@@ -8,6 +8,7 @@
     },
     "dependencies": {
         "easy-qrcode": "^0.1.0",
+        "rc-slider": "^9.7.2",
         "react": "^17.0.0",
         "react-dom": "^17.0.0"
     },

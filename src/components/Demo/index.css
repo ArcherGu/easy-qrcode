@@ -110,19 +110,19 @@
     height: 40px;
 }
 
-.vue-slider-process {
+.rc-slider-track {
     background-color: #4592af;
 }
 
-.vue-slider:hover .vue-slider-process {
+.rc-slider:hover .rc-slider-track {
     background-color: #337ab7;
 }
 
-.vue-slider-dot-handle {
+.rc-slider-handle {
     border-color: #4592af;
 }
 
-.vue-slider:hover .vue-slider-dot-handle {
+.rc-slider:hover .rc-slider-handle {
     border-color: #337ab7;
 }
 
