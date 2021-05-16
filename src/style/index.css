@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:700,400');
+@import url('https://fonts.googleapis.com/css?family=Dosis:400');
+
+body {
+    background: #fff;
+    color: #35495e;
+    font-family: Lato, Helvetica, sans-serif;
+    text-decoration: none;
+    margin: 0px;
+    min-height: 100vh;
+    background: linear-gradient(to left bottom, rgb(179, 233, 255) 0%, rgb(179, 193, 255) 100%);
+}

@@ -316,6 +316,11 @@ debug@^4.1.0:
   dependencies:
     ms "2.1.2"
 
+easy-qrcode@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.nlark.com/easy-qrcode/download/easy-qrcode-0.1.0.tgz#ceb6f7cd122ff3706e98339bfd75c4e9e581346d"
+  integrity sha1-zrb3zRIv83BumDOb/XXE6eWBNG0=
+
 electron-to-chromium@^1.3.723:
   version "1.3.728"
   resolved "https://registry.nlark.com/electron-to-chromium/download/electron-to-chromium-1.3.728.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Felectron-to-chromium%2Fdownload%2Felectron-to-chromium-1.3.728.tgz#dbedd6373f595ae10a13d146b66bece4c1afa5bd"

@@ -1,0 +1,185 @@
+.form {
+    display: block;
+    margin-top: 0em;
+}
+
+.form-item,
+.form-item-label-top {
+    margin-bottom: 1rem;
+}
+
+.form-item-label {
+    text-align: left;
+    vertical-align: middle;
+    float: left;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #606266;
+    line-height: 40px;
+    padding: 0 12px 0 0;
+    box-sizing: border-box;
+}
+
+.form-item-label-top .form-item-label {
+    float: none;
+    display: inline-block;
+    text-align: left;
+    padding: 0 0 10px;
+}
+
+@media only screen and (max-width: 1070px) {
+    .form-item-label-top .form-item-content {
+        margin-left: 0px !important;
+    }
+}
+
+.form-item-content {
+    line-height: 40px;
+    position: relative;
+    font-size: 14px;
+}
+
+.form-item-content:before {
+    display: table;
+    content: "";
+}
+
+.demo {
+    display: block;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 0;
+    text-align: center;
+    max-width: 1400px;
+    margin-bottom: 2rem;
+}
+
+.demo .form {
+    width: 100%;
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: 1rem;
+    margin: 0;
+    text-align: left;
+    vertical-align: top;
+    position: relative;
+    padding: 0 20px;
+}
+
+@media only screen and (min-width: 750px) {
+    .demo .form {
+        width: 50%;
+    }
+}
+
+.demo-textarea {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    vertical-align: bottom;
+    font-size: 14px;
+}
+
+.demo-textarea .demo-textarea__inner {
+    min-height: 44px;
+    font-family: Dosis, sans-serif;
+    display: block;
+    resize: vertical;
+    padding: 5px 15px;
+    line-height: 2;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #606266;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #dcdfe6;
+    border-radius: 4px;
+    transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.demo-textarea__inner:focus {
+    outline: none;
+    border-width: 2px;
+    border-color: #337ab7;
+}
+
+.demo-slider {
+    height: 40px;
+}
+
+.vue-slider-process {
+    background-color: #4592af;
+}
+
+.vue-slider:hover .vue-slider-process {
+    background-color: #337ab7;
+}
+
+.vue-slider-dot-handle {
+    border-color: #4592af;
+}
+
+.vue-slider:hover .vue-slider-dot-handle {
+    border-color: #337ab7;
+}
+
+.demo-radio label {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-left: 50px
+}
+
+@media only screen and (max-width: 1070px) {
+    .demo-radio label {
+        margin-left: 10px
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .demo-radio label {
+        margin-left: 5px
+    }
+}
+
+.radio-type {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 5px;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+.radio-type:before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    border: 2px solid #337ab7;
+    display: inline-block;
+    border-radius: 50%;
+    vertical-align: middle;
+    position: absolute;
+}
+
+.radio-type:checked:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    text-align: center;
+    background: #337ab7;
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.qrcode-canvas {
+    text-align: center;
+}

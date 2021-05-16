@@ -1,0 +1,27 @@
+.introduction {
+    padding: 1.25rem 0 0;
+    font-family: Dosis, sans-serif;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    color: #374853;
+    line-height: 1.2;
+}
+
+@media only screen and (min-width: 1024px) {
+    .introduction {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (min-width: 640px) {
+    .introduction {
+        font-size: 1.5rem;
+    }
+}
+
+.link {
+    color: #337ab7;
+    text-decoration: none;
+    font-weight: 700;
+}
